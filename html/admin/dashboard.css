@@ -1,0 +1,232 @@
+*{
+    /* border: 1px solid black; */
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* large screen css */
+  
+
+nav{
+    background-color: rgb(211, 123, 211);
+    height: 50px;
+}
+#main{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+#left{
+    /* background-color: gainsboro; */
+    width: 20%;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    padding-bottom: 200px;
+}
+#left>div{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+#right{
+    /* height: 600px; */
+    width: 75%;
+}
+#right>div:nth-child(1){
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    padding-bottom: 15px;
+    margin-top: 5px;
+}
+
+#left_adminimg img {
+    width: 80%;
+    padding: 15px;
+    border-radius: 50%;
+}
+#left_adminimg  {
+    text-align: center;
+    padding: 25px;
+
+}
+
+/* I am not able to make the images and span text at the same time; */
+
+#left_pageinfo img {
+    width: 10%;
+    margin-top: 5px;
+    /* background-color: rgb(228, 100, 228); */
+
+}
+#left_pageinfo span {
+    margin-left: 7%;
+}
+
+#left_pageinfo > div{
+    padding: 15px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    margin-top: 10px;
+}
+
+
+#order{
+    /* display: none; */
+    padding-top: 40px;
+    margin-top: 30px;
+    padding: 3%;
+    /* padding-right: 3%; */
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    
+}
+#order> div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+}
+
+select{
+     margin-top: 20px;
+     text-align: center;
+     padding: 15px;
+     margin-bottom: 15px;
+}
+
+th{
+    background-color:rgb(240, 159, 240);
+    padding: 10px;
+    text-align: center;
+    width: 5%;
+    margin-bottom: 5px;
+}
+input{
+    padding: 15px;
+    width: 40%;
+    margin-top: 10px;
+    margin-left: 3%;
+}
+button{
+    padding: 15px;
+    width: 10%;
+    margin-left: 2%;
+}
+
+/* how we can add padding in opiton also */
+
+
+#product{
+    display: none;
+    padding-top: 40px;
+    margin-top: 30px;
+    /* padding-left: 3%; */
+    padding: 3%;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+}
+#product> div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+}
+#customer{
+    display: none;
+    padding-top: 40px;
+    margin-top: 30px;
+    padding: 3%;
+    /* padding-right: 3%; */
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+
+}
+#customer> div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+}
+
+#payment{
+    display: none;
+    padding-top: 40px;
+    margin-top: 30px;
+    padding: 3%;
+    /* padding-right: 3%; */
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+#payment> div:nth-child(1){
+    display: flex;
+    justify-content: space-between;
+}
+
+/* medium screen css */
+@media screen and (max-width: 770px)and (min-width: 400px){
+    #left{
+        width: 22%;
+        padding-bottom: 200px;
+    }
+    #left_pageinfo>div{
+        margin-top: 10px;
+    }
+     
+    #right>div:nth-child(1) button{
+        width:15%;
+    }  
+    #right > div{
+        margin-left: 7%;
+    }
+
+    #right{
+        margin-right: 15px;
+    }
+
+}
+
+
+/* small screen css */
+
+@media screen and (max-width: 480px) {
+    *{
+        font-size: 10px;
+    }
+
+    #left  {
+        width: 25%;
+        padding-bottom: 200px;
+    }
+    #left_adminimg img {
+       /* background-color: red; */
+       margin-left: -9px;
+    }
+    #left span{
+        font-size: 10px;
+    }
+    #left_pageinfo>div{
+        margin-top: 10px;
+        display: flex;
+    }
+    #left_pageinfo img{
+        width: 20%;
+    }
+
+
+    #right>div:nth-child(1) input{
+        width:40%;
+        text-align: center;
+        padding: 5px;
+    }  
+     
+    #right>div:nth-child(1) button{
+        width:25%;
+        text-align: center;
+        padding: 5px;
+    }  
+    #right > div{
+        margin-left: 7%;
+    }
+    
+    select{
+        padding: 7px;
+    }
+    th{
+        padding: 7px;
+        font-size: 9px;
+    }
+    
+}
+

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Land : Admin Access</title>
+    <link rel="shortcut icon" href="/logo/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/html/admin/dashboard.css">
+</head>
+<body>
+    <nav>
+        Logo
+    </nav>
+    <div id="main">
+        <div id="left">
+            <div id="left_adminimg">
+ <!------- append the imge of the admin  --------->
+             <img src="https://png.pngtree.com/png-vector/20190629/ourmid/pngtree-office-work-user-icon-avatar-png-image_1527655.jpg" alt="">
+             <h4 id="left_admin_name">Welcome Admin</h4>
+            </div>
+            <div id="left_pageinfo">
+             <div>
+                <img src="https://cdn-icons-png.flaticon.com/512/9280/9280764.png" alt="order">
+                <span id="orderbutton">Orders</span>
+             </div>
+             <div>
+                <img src="https://cdn-icons-png.flaticon.com/512/3759/3759768.png" alt="order">
+                <span id="productbutton">Products</span>
+             </div>
+             <div>
+                <img src="https://cdn-icons-png.flaticon.com/512/1077/1077063.png" alt="order">
+                <span id="customerbutton">Customers</span>
+             </div>
+             <div>
+                <img src="https://cdn-icons-png.flaticon.com/512/2953/2953363.png" alt="order">
+                <span id="paymentbutton">Payment</span>
+             </div>
+            </div>
+        </div>
+        <div id="right">
+            <div>
+                <input type="text" placeholder="Search Anything ...">
+            <button>Search</button>
+            </div>
+            <div id="order">
+                <div>
+                    <h2>Orders</h2>
+                    <p>Total Orders: <span id="totalordershow">0</span></p>
+                </div>
+                <div>
+                  <select name="" id="orderfilter">
+                    <option value="">Filter By Order Type</option>
+                    <option value="completed">Order Completed</option>
+                    <option value="pending">Order Pending</option>
+                    <option value="cancelled">Order Cancelled</option>
+                  </select>
+                </div>
+                <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Data added</th>
+                            <th>Customer</th>
+                            <th>Payment Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orderdatashow">
+                 <!-- append the order data here -->
+                    </tbody>
+                </table>
+                </div>
+            </div>
+<!-- page for product information when click on this -->
+            <div id="product">
+                <div>
+                    <h2>Products</h2>
+                    <p>Total Products: <span id="totalproductshow">0</span></p>
+                </div>
+                <div>
+                  <select name="" id="productfilter">
+                    <option value="">Filter By Product Status</option>
+                    <option value="published">Published</option>
+                    <option value="rejected">Rejected</option>
+                    <option value="proposed">Proposed</option>
+                  </select>
+                </div>
+                <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Availability</th>
+                            <th>Inventory</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productdatashow">
+                 <!-- append the product data here -->
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+ <!-- page for product information when click on this -->
+
+            <div id="customer">
+                <div>
+                    <h2>Customers</h2>
+                    <p>Total Customers: <span id="totalcustomershow">0</span></p>
+                </div>
+                <div>
+                  <select name="" id="customerfilter">
+                    <option value="">Filter By Customer Type </option>
+                    <option value="newCustomer">New Customer</option>
+                    <option value="loyalCustomer">Loyal Customer</option>
+                    <option value="inactiveCustomer">Inactive Customer</option>
+                  </select>
+                </div>
+                <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date Added</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Orders</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerdatashow">
+                 <!-- append the customers data here -->
+                    </tbody>
+                </table>
+                </div>
+            </div>
+<!-- page for payment information when click on this -->
+
+            <div id="payment">
+                <div>
+                    <h2>Payments</h2>
+                    <p>Total Payment: <span id="totalpaymentshow">0</span></p>
+                </div>
+                <div>
+                  <select name="" id="paymentfilter">
+                    <option value="">Filter By Payment Type </option>
+                    <option value="postpaid">Postpaid</option>
+                    <option value="prepaid">Prepaid</option>
+                  </select>
+                </div>
+                <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Location</th>
+                            <th>Order Cost</th>
+                            <th>No. of Items</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerdatashow">
+                 <!-- append the customers data here -->
+                    </tbody>
+                </table>
+                </div>
+<!-- page for payment information when click on this -->
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</body>
+<script src="/html/admin/dashboard.js"></script>
+</html>
