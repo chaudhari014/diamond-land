@@ -13,12 +13,38 @@ body{
   
 
 nav{
-    background-color: rgb(211, 123, 211);
-    height: 50px;
+    background-color: rgb(244, 206, 244);
+    height: 65px;
+    position: fixed;
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+   
 }
+nav>div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav>div:nth-child(2) img {
+   width: 30%;
+   height: 30%;
+
+}
+nav a{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    padding-left: 5px;
+}
+#logo{
+    width: 10%;
+}
+
 #main{
     display: flex;
     justify-content: space-between;
+    padding-top: 70px;
 }
 
 
@@ -123,10 +149,62 @@ button{
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
 
 }
+
 #product> div:nth-child(1){
     display: flex;
     justify-content: space-between;
 }
+#filter_table_and_updat{
+    display: flex;
+}
+#filter_table_and_updat>div:nth-child(1){
+    width: 70%;
+}
+#filter_table_and_updat>div:nth-child(2){
+    text-align: center;
+    /* background-color: aqua; */
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    width: 30%;
+}
+#producttab>div:nth-child(1){
+    display: flex;
+    /* background-color: rgb(57, 242, 28); */
+    padding-top: 0px;
+
+}
+#producttab>div:nth-child(1)> div {
+    width: 50%;
+    border: 1px solid white;
+    background-color:rgb(240, 159, 240);
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+/* #producttab>div:nth-child(1) input[type="checkbox"]{
+    margin-right: 10px;
+    color: red;
+} */
+#producttab form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 25px;
+}
+#producttab input[type='text']{
+    padding: 10px;
+    height: 10px;
+    width: 60%;
+
+}
+
+#producttab  input[type='submit'] {
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
+
+
+
+
 #customer{
     display: none;
     padding-top: 40px;
@@ -173,6 +251,22 @@ button{
 
     #right{
         margin-right: 15px;
+    }
+
+    #filter_table_and_updat>div:nth-child(1){
+        /* width: 60%;
+        background-color: red; */
+    }
+    th{
+        padding: 5px;
+    }
+
+    #filter_table_and_updat>div:nth-child(2){
+        text-align: center;
+        /* background-color: aqua; */
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+        width: 40%;
+        /* display: none; */
     }
 
 }

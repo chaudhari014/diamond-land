@@ -9,99 +9,201 @@
     <link rel="stylesheet" href="/css/checkout.css">
 </head>
 <body>
-    <div id="navbar">
-        <nav>
+    
+        <nav id="navbar">
             <!-- add navbar here -->
+            logo
         </nav>
-    </div>
     <div id="box">
        
       <div id="left">
-        <div id="loginbar">
-            <div>
-                <p>1. Log In</p>
+            <div id="loginbar">
+                <div>
+                    <p>1. Log In</p>
+                </div>
+                <div id="logininfo">
+                    <p>Logged in as <span id="loginshowemailid">Email</span></p>
+                    <button>Continue Checkout</button>
+                    <p>Use a different account. <a href="#">Log Out</a></p>
+                    <p>Please note that when you log out you will lose all the items in your cart and will be redirected to the Home page.</p>
+                </div>
             </div>
-            <div id="logininfo">
-                <p>Logged in as <span id="loginshowemailid">Email</span></p>
-                <button>Continue Checkout</button>
-                <p>Use a different account. <a href="#">Log Out</a></p>
-                <p>Please note that when you log out you will lose all the items in your cart and will be redirected to the Home page.</p>
-            </div>
-        </div>
-        <div id="giftmessage">
-            <div>
-                <p>2. Select Packaging and Add a Gift Message</p>
-            </div>
-            <div>
-                <p>Choose a Free Gift Wrap!</p>
-                <div id="gifttype">
-                    <div >
-                        <input type="radio"> 
-                    <label for="">Warm hugs</label>
+            <div id="giftmessage">
+                <div>
+                    <p>2. Select Packaging and Add a Gift Message</p>
+                </div>
+                <div id="giftmessagearea">
+                    <p>Choose a Free Gift Wrap!</p>
+                    <div id="gifttype">
+                        <div >
+                            <input type="checkbox"> 
+                        <label for="">Warm hugs</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"> 
+                        <label for="">Purple sun</label>
+                        </div>
+                        <div>
+                            <input type="checkbox"> 
+                        <label for="">Fairy Tales</label>
+                        </div>
+                    </div>
+                    <div id="giftimg">
+                        <img src="https://i1.fnp.com/images/pr/l/v20191217163103/mini-hearts-gift-wrapping-paper-roll_1.jpg" alt="">
+                        
+                        <img src="https://cdn.shopify.com/s/files/1/0524/0140/6144/products/il_fullxfull.2627254620_qpfj_300x300.jpg?v=1628181297" alt="">
+                        <img src="https://m.media-amazon.com/images/I/71xRBcMAtUL._SL1500_.jpg" alt="">
+                    </div>
+                    <div id="giftmessage_div4">
+                        <h5>Add a Special Message!<span >(Optional)</span></h5>
+                        <p>250 characters limit</p>
                     </div>
                     <div>
-                        <input type="radio"> 
-                    <label for="">Purple sun</label>
+                        <textarea name="" id="gifttextarea" cols="30" rows="10"></textarea>
                     </div>
-                    <div>
-                        <input type="radio"> 
-                    <label for="">Fairy Tales</label>
+                    <div id="giftmessage_div5">
+                        <button>Continue to Delivery Information</button>
+                        <label for=""> <input type="checkbox">Choose to send order updates to Gift Recipient
+                        </label>
                     </div>
                 </div>
-                <div id="giftimg">
-                    <img src="https://i1.fnp.com/images/pr/l/v20191217163103/mini-hearts-gift-wrapping-paper-roll_1.jpg" alt="">
+            </div>
+            <div id="addressinfo">
+                <div>
+                    3. Delivery/Pickup Information
+                </div>
+                <div id="addressinfodiv2">
+                    <div>
+                        <h4>Delivery Mode</h4>
+                    </div>
+                    <div id="delivery_checkboxdiv">
+                        <label for=""><input type="checkbox" >
+                            Deliver at the Shipping Address
+                        </label>
+                        <label for=""><input type="checkbox" >
+                        Pick up from a CaratLane Store
+                        </label>
+                    </div>
+                    <div>
+                        <h4>Shipping Address</h4>
+                        <div id="addressinput">
+                            <div>
+                                <input type="text" id="firstname" placeholder="First Name">
+                                <input type="text" id="lastname" placeholder="Last Name">
+                            </div>
+                            <div>
+                                <input type="text" id="stree" placeholder="Stree & House Number">
+                                <input type="text" id="additionalinfo" placeholder="Additional Info (optional)">
+                            </div>
+                            <div>
+                                <input type="text" id="pincode" placeholder="Pincode/Zip Code">
+                                <input type="text" id="city" placeholder="City">
+                            </div>
+                        </div>
+                        <div id="addresdropdown">
+                            <select id="country">
+                                <option value="indai">India</option>
+                            </select>
+                            
+                            <select id="state">
+                                <option value="">Select State</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Haryana">Haryana</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Manipur">Manipur</option>
+                                <option value="Meghalaya">Meghalaya</option>
+                                <option value="Mizoram">Mizoram</option>
+                                <option value="Nagaland">Nagaland</option>
+                                <option value="Odisha">Odisha</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Sikkim">Sikkim</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Tripura">Tripura</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="West Bengal">West Bengal</option>
+                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                <option value="Chandigarh">Chandigarh</option>
+                                <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Lakshadweep">Lakshadweep</option>
+                                <option value="Puducherry">Puducherry</option>
+                            </select>
+                            
+                        </div>
+                        <div>
+                            <h4>Select Address Type</h4>
+                            <div id="addresstypebutton">
+                                <button id="home">
+                                    Home (7am - 9pm delivery)
+                                </button>
+                                <button id="office">
+                                    Office(10am - 7pm delivery)
+                                </button>
+                            </div>
+                        </div>
+                        <div id="mobilenumberdiv">
+                            <select name="" id="">
+                                <option value="">+91</option>
+                            </select>
+                            <input id="moblienumber" type="number" placeholder="Mobile No.">
+                        </div>
+                        <div>
+                            <button id="paymentmodebutton">Continue to Payment Method</button>
+                        </div>
+                    </div>
                     
-                    <img src="https://cdn.shopify.com/s/files/1/0524/0140/6144/products/il_fullxfull.2627254620_qpfj_300x300.jpg?v=1628181297" alt="">
-                    <img src="https://m.media-amazon.com/images/I/71xRBcMAtUL._SL1500_.jpg" alt="">
                 </div>
-                <div>
-                    <h5>Add a Special Message!</h5>
-                    <span>(Optional)</span>
-                    <p>250 characters limit</p>
-                </div>
-                <div>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                </div>
-                <div>
-                    <button>Continue to Delivery Information</button>
-                    <input type="radio">
-                    <label for="">Choose to send order updates to Gift Recipient
-                    </label>
-                </div>
+
+            </div>
+            <div id="paymentbar">
+
             </div>
         </div>
-
-      </div>
-      <div id="right">
+        <div id="right">
          <div>
-            <h3>Order Summary</h3>
-            <div id="purchasedatashow">
-<!-- apped the data which cx. want to buy -->
-            </div>
-            <div id="purchasepriceshow">
-             <div>
-                <p>SUBTOTAL</p> <h4>₹ <span id="subtotal">0</span></h4>
-             </div>
-             <div>
-                <p>CART DISCOUNT</p>
-                <h4>₹ <span id="subtotal">0</span></h4>
-             </div>
-             <div>
-                <p>COUPON DISCOUNT(EXTRA3)</p>
-                <h4>₹ <span id="subtotal">0</span></h4>
-             </div>
-             <div>
-                <p>SHIPPING CHARGES (Standard)</p>
-                <h4>FREE</h4>
-             </div>
-             <div>
-                <p>TOTAL COST</p>
-                <h4>₹ <span id="subtotal">0</span></h4>
-             </div>
-            </div>
-         </div>
+                <h3>Order Summary</h3>
+                <div id="purchasedatashow">
+    <!-- apped the data which cx. want to buy -->
+                </div>
+                <div id="purchasepriceshow">
+                <div>
+                    <p>SUBTOTAL</p> <h4>₹ <span id="subtotal">0</span></h4>
+                </div>
+                <div>
+                    <p>CART DISCOUNT</p>
+                    <h4>₹ <span id="subtotal">0</span></h4>
+                </div>
+                <div>
+                    <p>COUPON DISCOUNT(EXTRA3)</p>
+                    <h4>₹ <span id="subtotal">0</span></h4>
+                </div>
+                <div>
+                    <p>SHIPPING CHARGES (Standard)</p>
+                    <h4>FREE</h4>
+                </div>
+                <div>
+                    <p>TOTAL COST</p>
+                    <h4>₹ <span id="subtotal">0</span></h4>
+                </div>
+                </div>
+          </div>
       </div>
     </div>
     
 </body>
+<script src="/javascript/checkout.js"></script>
 </html>
