@@ -1,0 +1,137 @@
+*{
+    /* border: 1px solid black; */
+    font-family: sans-serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    background-color: plum;
+    height: 70px;
+    /* position: fixed; */
+}
+#navbar{
+    height: 70px;
+}
+#box{
+    display: flex;
+}
+
+#left{
+    background-color: #F6EFF6;
+    height: 1500px;
+    width: 59%;
+}
+#right{
+    background-color: white;
+    height: 500px;
+    width: 38%;
+    padding: 15px;
+    position: fixed;
+    right: 0;
+}
+#right h3{
+    margin-top: -5px;
+}
+#purchasedatashow{
+    padding: 15px 0 15px 0px;
+    background-color: rgb(196, 191, 191);
+}
+#purchasepriceshow{
+    font-weight: lighter;
+    margin-top: 15px;
+    border-top: 1px solid black;
+}
+
+#purchasepriceshow>div{
+    display: flex;
+    justify-content: space-between;
+    line-height: 0pt;
+}
+#purchasepriceshow>div:nth-child(1){
+    margin-bottom: 5px;
+}
+#purchasepriceshow>div:nth-child(2){
+    margin: 0px;
+    padding: 0;
+}#purchasepriceshow>div:nth-child(3){
+    margin-top: -15px;
+    padding: 0px;
+}
+#purchasepriceshow>div:nth-child(4){
+    margin-top: -15px;
+    padding: 0px;
+}
+#purchasepriceshow>div:nth-child(5){
+     border-top: 1px solid black;
+     padding-top: 10px ;
+}
+
+/* leftside css */
+#loginbar >div:nth-child(1){
+    background-color: rgb(23, 23, 23);
+    color: white;
+    padding: 4px;
+    font-weight: bold;
+}
+
+#loginbar >div:nth-child(2){
+    width: 50%;
+    margin: auto;
+    padding: 25%;
+    background-color: white;
+    padding-top: 10%;
+    padding-bottom: 10%;
+
+}
+#loginbar >div:nth-child(2) button{
+    padding: 10px;
+    width: 95%;
+    display: block;
+    background: linear-gradient(to right, #D059E8, #9462F8);
+    color: white;
+    font-size: bold;
+    border-radius: 5px;
+    border: none;
+}
+#logininfo p{
+    width: 98%;
+    display: block;
+    font-size: 12px;
+    color: rgb(116, 116, 116);
+}
+#logininfo a{
+    text-decoration: none;
+    color: #E78EEC;
+}
+
+#loginshowemailid{
+    font-weight: bold;
+    color: black;
+    font-size: 15px;
+}
+#logininfo>p:nth-child(1){
+    font-size: 14px;
+    color: black;
+}
+#logininfo button + p{
+    font-size: 13px;
+    color: black;
+}
+#gifttype{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-left: 10px;
+}
+#giftimg {
+    display: flex;
+    justify-content: space-between;
+    width: 87%;
+    margin-left: 10px;
+}
+#giftimg img{
+    margin-top: 20px;
+    width: 25%;
+}
