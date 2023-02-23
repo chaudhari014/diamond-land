@@ -11,7 +11,17 @@ let orderfilter = document.getElementById('orderfilter');
 let productfilter = document.getElementById('productfilter');
 let customerfilter = document.getElementById('customerfilter');
 let paymentfilter = document.getElementById('paymentfilter')
-let orderdiv = document.querySelector('#left_admininfo>:nth-child(1)')
+let orderdiv = document.querySelector('#left_admininfo>:nth-child(1)');
+let productAddOrUpdatebutton = document.getElementById('inputform_submitbutton');
+// product page input tags 
+let productname = document.getElementById('productname');
+let productimg = document.getElementById("productimg");
+let productweight = document.getElementById('productweight');
+let producttype = document.getElementById('producttype');
+let productpurity = document.getElementById('productpurity')
+// checkbox is checked or not ;
+let postrequest = document.getElementById('post');
+let putrequest = document.getElementById('put')
 //-----------------------------------
 // ordertab.style.display = 'none'
 // producttab.style.display = 'none'
@@ -147,10 +157,23 @@ paymentbutton.addEventListener('click',()=>{
 })
 
 
-// Get the screen width and height
-var screenWidth = screen.width;
-var screenHeight = screen.height;
+// // Get the screen width and height
+// var screenWidth = screen.width;
+// var screenHeight = screen.height;
 
-// Display the screen size in the console
-console.log("Screen width: " + screenWidth + "px");
-console.log("Screen height: " + screenHeight + "px");
+// // Display the screen size in the console
+// console.log("Screen width: " + screenWidth + "px");
+// console.log("Screen height: " + screenHeight + "px");
+
+productAddOrUpdatebutton.addEventListener('click',(e)=>{
+    e.preventDefault()
+    console.log(postrequest.checked,putrequest.checked)
+    if(postrequest.checked) {
+        // we will do the post reqeust to server
+        console.log('post')
+    } else if(putrequest.checked){
+        // we will do the put request ;
+        console.log('put')
+    }
+    
+})

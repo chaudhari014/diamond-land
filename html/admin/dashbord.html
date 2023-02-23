@@ -10,8 +10,15 @@
 </head>
 <body>
     <nav>
-        Logo
+     <div>
+       <a href="/html/admin/dashbord.html"> <img id="logo" src="/logo/logo-no-background.png" alt=""></a>
+     </div>
+     <div>
+        <img src="https://cdn-icons-png.flaticon.com/512/7542/7542245.png" alt="">
+        <a href="#" id="adminpagestatus">Login</a>
+     </div>
     </nav>
+
     <div id="main">
         <div id="left">
             <div id="left_adminimg">
@@ -86,20 +93,40 @@
                     <option value="proposed">Proposed</option>
                   </select>
                 </div>
+            <div id="filter_table_and_updat">
                 <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Status</th>
-                            <th>Availability</th>
-                            <th>Inventory</th>
-                        </tr>
-                    </thead>
-                    <tbody id="productdatashow">
-                 <!-- append the product data here -->
-                    </tbody>
-                </table>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Status</th>
+                                <th>Availability</th>
+                                <th>Inventory</th>
+                                <th>Edit</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productdatashow">
+                     <!-- append the product data here -->
+                        </tbody>
+                    </table>
+                </div>
+                <div id="producttab">
+                    <div>
+                        <div><label for=""><input id="post" type="checkbox"> <br>Update Product</label></div>
+                        <div>
+                            <input type="checkbox" id="put"> <br><label for="">Add New product</label>
+                        </div>
+                    </div>
+                    <form id="inputform_data">
+                      <input type="text" id="productimg" placeholder=" Product Image">
+                      <input type="text" id="productname" placeholder=" Product Name">
+                      <input type="text" id="productweight" placeholder=" Product Weight">
+                      <input type="text"  id="producttype" placeholder=" Product Type">
+                      <input type="text" id="productpurity" placeholder=" Product Purity">
+                      <input type="submit" id="inputform_submitbutton">
+                    </form>
+
+                </div>
                 </div>
             </div>
 
