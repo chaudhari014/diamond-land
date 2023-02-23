@@ -63,8 +63,8 @@ productbutton.addEventListener('click',()=>{
     customertab.style.display = 'none'
     paymenttab.style.display = 'none'
     productfilter.value = '';
-    if(screen.width<440){
-        productbutton.style.color = 'rgb(204, 49, 204)'
+    if(screen.width<480){
+     productbutton.style.color = 'rgb(204, 49, 204)'
     productbutton.style.fontSize = '12px'
     orderbutton.style.color = 'black'
     orderbutton.style.fontSize = '10px'
