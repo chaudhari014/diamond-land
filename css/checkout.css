@@ -27,8 +27,9 @@ body{
 }
 #right{
     background-color: white;
-    width: 38%;
+    width: 35%;
     padding: 15px;
+    padding-right: 35px;
     position: fixed;
     right: 0;
     font-size: 11px;
