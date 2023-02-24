@@ -177,3 +177,6 @@ productAddOrUpdatebutton.addEventListener('click',(e)=>{
     }
     
 })
+
+
+div.style.display  = 'none'
