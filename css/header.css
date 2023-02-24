@@ -207,9 +207,6 @@ input {
   justify-content: space-around;
   align-items: center;
 }
-/* .menu-list {
-  margin: 6px;
-} */
 .menu-list :hover {
   border-bottom: 2px solid rgb(247, 4, 227);
 }
@@ -325,7 +322,7 @@ input {
 }
 .footer {
   padding: 30px;
-  background-color: rgb(242, 231, 255);
+  background-color: #ffeefe;
 }
 .footer-main {
   width: 100%;
@@ -357,15 +354,16 @@ input {
 }
 .contacts img {
   background: transparent;
-  width: 24px;
-  height: 24px;
+  margin: 10px;
+  width: 20px;
+  height: 20px;
 }
 .footer-sub > div {
   padding: 10px;
   font-size: 12px;
-  line-height: 20px;
+  line-height: 30px;
   font-family: InterRegular, "Helvetica neue", Helvetica, Arial, sans-serif;
-  margin: auto;
+  /* margin: auto; */
   width: 18%;
   /* border: 3px solid black; */
   /* height: 250px; */
@@ -380,11 +378,53 @@ input {
   /* border: 5px solid black; */
   /* background: yellow; */
 }
-.footer-sub2 div {
-  width: 47%;
+.footer-sub2 > div {
+  width: 30%;
   height: 190px;
-  border: 5px solid black;
+  /* border: 5px solid black; */
 }
+.socialmedia-section {
+  /* width: 50%; */
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.socialmedia {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.socialmedia img {
+  width: 40px;
+  height: 40px;
+}
+.playstore {
+  width: 80%;
+}
+.download-app {
+  font-size: 15px;
+  color: gray;
+  padding-top: 20px;
+}
+.playstore img {
+  padding: 20px;
+  width: 400px;
+}
+.payment-section div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.payment-section div > img {
+  background: transparent;
+  width: 60px;
+}
+
+/* menu hover effects */
+.menu2:hover {
+}
+
 @media only screen and (max-width: 1000px) {
   .nav2,
   .nav3 {

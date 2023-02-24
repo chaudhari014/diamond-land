@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .rings {
+        /* display: none;
+        visibility: hidden; */
+        position: relative;
+        z-index: 2;
+        transition: height 500ms;
+        display: flex;
+        border: 2px solid red;
+        width: 100%;
+        height: 400px;
+        font-size: 13px;
+        justify-content: space-around;
+        align-items: flex-start;
+        /* animation: myAnim 1s ease 0s infinite normal forwards; */
+      }
+
+      .main-hover {
+        display: none;
+        /* position: relative; */
+        /* z-index: 1; */
+        /* overflow: hidden; */
+      }
+      .hover {
+        position: absolute;
+        z-index: 3;
+      }
+      .hover:hover {
+        color: red;
+      }
+      .hover:hover + .rings {
+        display: block;
+        /* visibility: visible; */
+      }
+      .heading {
+        padding: 15px;
+        color: black;
+        border-bottom: 2px solid rgb(187, 2, 207);
+      }
+      a {
+        text-decoration: none;
+        color: gray;
+      }
+      a:hover {
+        font-size: 14px;
+        color: black;
+      }
+      .rings > div div img {
+        width: 50px;
+      }
+      .rings > div div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        /* flex-direction: column; */
+      }
+      #shop-by-metal img {
+        width: 17px;
+      }
+      .shopby a {
+        font-size: 15px;
+        padding: 8px;
+        display: block;
+      }
+      /* @keyframes myAnim {
+        0% {
+          opacity: 0;
+          transform: rotateX(-100deg);
+          transform-origin: top;
+        }
+
+        100% {
+          opacity: 1;
+          transform: rotateX(0deg);
+          transform-origin: top;
+        }
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="hover">
+      hover
+      <div class="main-hover">
+        <div class="rings">
+          <div class="shop-by-style">
+            <p class="heading">SHOP BY STYLE</p>
+            <a href="">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/3e52030aaf3c4b59b34f7825aaefd475.jpg"
+                  alt=""
+                />
+                <p>ENGAGEMENT</p>
+              </div>
+            </a>
+            <a href="">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/3eec2a8167b54bd096102e07f0cb6d3e.jpg"
+                  alt=""
+                />
+                <p>COUPLE RINGS</p>
+              </div>
+            </a>
+            <a href="">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/bdf62790e1fa4a49bc2cfb3c8b686b49.jpg"
+                  alt=""
+                />
+                <p>CASUALS</p>
+              </div>
+            </a>
+            <a href="">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/3aa8d1ca304e40d2bc21b6eccac7318e.jpg"
+                  alt=""
+                />
+                <p>ADJUSTABLE RINGS</p>
+              </div>
+            </a>
+            <a href="">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/1846df6cb220459786cbeb20225b827b.jpg"
+                  alt=""
+                />
+                <p>SILVER RINGS</p>
+              </div>
+            </a>
+            <a href="">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/b934e1f5eebe412ebe5e730fa8ff134a.jpg"
+                  alt=""
+                />
+                <p>SILVER STATEMENT RINGS</p>
+              </div>
+            </a>
+          </div>
+          <div class="shop-by-style2">
+            <p class="heading" style="border: none"></p>
+            <a href="#">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/f1cecd6ba83142afa27229492f59391d.jpg"
+                  alt=""
+                />
+                <p>PLATINUM RINGS</p>
+              </div>
+            </a>
+            <a href="#">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/94329809fcdf408eb7487e69abd78d21.jpg"
+                  alt=""
+                />
+                <p>COCKTAIL</p>
+              </div>
+            </a>
+            <a href="#">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/45bd4c30c40e41308ea829c2f415ae97.png"
+                  alt=""
+                />
+                <p>BANDS</p>
+              </div>
+            </a>
+            <a href="#">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/b127d70ba53c4dbe9fcb2e56553fc911.jpg"
+                  alt=""
+                />
+                <p>PROMISE RINGS</p>
+              </div>
+            </a>
+          </div>
+          <div id="shop-by-metal">
+            <p class="heading">SHOP BY METAL & STONE</p>
+            <a href="#">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/d1a7f911832941a397924c2d91b8a4be.png"
+                  alt=""
+                />
+                <p>GEMSTONE</p>
+              </div>
+            </a>
+            <a href="#">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/d782ca3b7cb14d49bc7f2e12e92a2e80.png"
+                  alt=""
+                />
+                <p>SOLITAIRES</p>
+              </div>
+            </a>
+            <a href="#">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/9440e36056344d9b87f2595609645a72.png"
+                  alt=""
+                />
+                <p>DIAMOND</p>
+              </div>
+            </a>
+            <a href="#">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/42312a2603064c83ab56f5991e09285d.png"
+                  alt=""
+                />
+                <p>GOLD</p>
+              </div>
+            </a>
+            <a href="#">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/67d8830039e64bab9a993f203cb82208.png"
+                  alt=""
+                />
+                <p>YELLOW GOLD</p>
+              </div>
+            </a>
+            <a href="#">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/04d2cec15dd04bcc9b33747e788f6c8e.png"
+                  alt=""
+                />
+                <p>WHITE GOLD</p>
+              </div>
+            </a>
+            <a href="#">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/40fbb1dbeb9b45b39d004373fd4e4485.png"
+                  alt=""
+                />
+                <p>ROSE GOLD</p>
+              </div>
+            </a>
+            <a href="#">
+              <div>
+                <img
+                  src="https://banner.caratlane.com/live-images/84581eae59b34f48bffbef0d8d3fc892.png"
+                  alt=""
+                />
+                <p>SILVER BY SHAYA</p>
+              </div>
+            </a>
+          </div>
+          <div class="shopby">
+            <p class="heading">SHOP BY</p>
+            <a href="#"><p>FOR MEN</p></a>
+            <a href="#">Under ₹ 10k</a>
+            <a href="#">₹10k to ₹20k</a>
+            <a href="#">₹20k to ₹ 30k</a>
+            <a href="#">above ₹ 30k</a>
+            <a href="#"><p>FOR WOMEN</p></a>
+            <p class="heading">SHOW ALL DESIGNS</p>
+          </div>
+          <div class="image">
+            <img
+              src="https://banner.caratlane.com/live-images/ddb6596303814dd7a618df6c0ee4cd1c.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
