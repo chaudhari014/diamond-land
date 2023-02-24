@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up page</title>
+    <link rel="stylesheet" href="signup2.css">
+</head>
+<body>
+
+<div id="Main-container">
+
+
+
+    <h1>Sign up with Diamond Land</h1>
+
+    <div id="main">
+    <button class="Facebook">
+<img width="35px" src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="">
+<span>Facebook</span>
+    </button>
+    
+    <button class="google" >
+        <img width="35px" src="https://cdn.cdnlogo.com/logos/g/35/google-icon.svg"/>
+        <span>Google</span>
+      </button>
+</div>
+       <div class="or">
+        <h3>OR</h3>
+       </div>
+<!-- 
+       <div class="css-nt7jp8 ecw0gjq2"><div class="css-1tm9oiq ecw0gjq0"><h6 class="input-heading">ISD</h6><div class="input-wrapper css-164bl3z e1d8b1dc0"><input spellcheck="false" class="css-1ahfcvl e1d8b1dc1" type="text" placeholder="91" name="isdCode" maxlength="12" autocomplete="off" value="91"></div></div><div class="css-1tm9oiq ecw0gjq0"><h6 class="input-heading">Mobile number</h6><div class="input-wrapper css-164bl3z e1d8b1dc0"><input spellcheck="true" class="css-1ahfcvl e1d8b1dc1" type="text" name="mobile" maxlength="14" autocomplete="tel" value=""></div></div></div> -->
+<form>
+       <div id="number">
+        <div class="ISD">
+        <h2>ISD</h2>
+        <input type="text" name="isdcode" placeholder="91" maxlength="2" id="numbers">
+        
+    </div>
+        <div class="mobile-number">
+            <h2>Mobile Number</h2>
+            <input type="text" name="mobile" maxlength="10" id="mobileno">
+        </div>
+       </div>
+
+       <div id="email">
+          <h2>Email</h2>
+          <input type="text" name="Email" maxlength="100" id="emails">
+       </div>
+
+       <div id="fullname">
+        <div class="first">
+            <h2>First Name</h2>
+            <input type="text" id="first">
+        </div>
+          <div class="last">
+              <h2>Last Name</h2>
+              <input type="text" id="last">
+          </div>
+       </div>
+
+       <div id="pass">
+        <h2>Password</h2>
+ <input type="password" value="" id="myInput" >
+       <input type="checkbox" onclick="myFunction()">Show
+    </div> 
+
+    <div id="confirm-pass">
+        <h2>Confirm Password</h2>
+ <input type="password" value="" id="myInput2" >
+       <input type="checkbox" onclick="Toggle()">Show
+    </div> 
+
+   <div id="round">
+    <label class="container">Male
+        <!-- <div id="male">Male</div> -->
+      <input type="radio" checked="checked" name="radio" id="male" >
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Female
+      <input type="radio" name="radio" id="female" >
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">I don't want to specify
+      <input type="radio" name="radio" id="iwe">
+      <span class="checkmark"></span>
+    </label>
+</div>
+   
+
+<div id="containerr">
+    <div class="round">
+      <input type="checkbox" checked id="checkbox" />
+      <label for="checkbox"></label>
+      
+    </div>
+    <h2>Opt for Whatsapp Support</h2>
+    <h3>We will be sharing Delivery & precious order related <br> communication. Also provide you with an <br> interactive whatsapp support</h3>
+  </div>
+
+ <div id="button">
+ <button>REGISTER TO CONTINUE</button> 
+
+  </div> 
+
+
+  <div id="aaa">
+    Already have an account? 
+    LOG IN
+</div>
+
+</div>
+</form>
+</body>
+
+
+
+
+
+<script src="./signup2.js"></script>
+</html>
