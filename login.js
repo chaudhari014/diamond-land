@@ -1,25 +1,31 @@
 
 
-let data = JSON.parse(localStorage.getItem("cart"))
 
-let cont = document.getElementById("email")
+let url=`https://diamond-xuwq.onrender.com/customerData`;
+     let username=document.querySelector("#email");
+    //  let password=document.querySelector("#password");
+     let loginBtn=document.querySelector("form");
+     
 
-let a = document.getElementById("last")
-
-let button = document.getElementById("continue")
-
-button.addEventListener("click",()=> {
-    if (cont==data.email){
-        alert ("Login successfull")
-     }else{
-        alert ("incorrect email")
-     }
-  
-
-
-    //  if (cont==data.email){
-    //     alert ("Login successfull")
-    //  }else{
-    //     alert ("incorrect email")
-    //  }
-})
+     loginBtn.addEventListener("submit",(e)=>{
+        e.preventDefault();
+       fetch(url).then((res)=>{
+        return res.json();
+       }).then((data)=>{
+        console.log(data)
+     let user=data.filter((ele)=>{
+        return ele.email==username.value
+     })  
+        if(user[0]==undefined){
+            alert("Wrong Credientials")
+        }else{
+           if(user[0].email==email.value){
+            alert("Login Success")
+            window.location.assign("index.html")
+           }else{
+            alert("Wrong Password");
+            email.value=null;
+           }
+        }
+       })
+     })

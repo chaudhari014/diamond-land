@@ -19,43 +19,104 @@ function Toggle() {
 
   // for local Storage;
 
-  let form = document.querySelector("form")
-  let isd = document.getElementById("numbers")
-  let email = document.getElementById("email")
-  let fullname=document.getElementById("first")
-  let male = document.getElementById("male")
+  // let form = document.querySelector("form")
+
+  // let isd = document.getElementById("numbers")
+
+  // let email = document.getElementById("email")
+
+  // let fullname=document.getElementById("first")
+
+  // let male = document.getElementById("male")
+
   // let female = document.getElementById("female")
   // let iwe = document.getElementById("iwe")
-  let fullname2 = document.getElementById("last")
-  let password = document.getElementById("myInput")
-  let mobileno = document.getElementById("mobileno")
-  // let c_password = document.getElementById("myInput2")
-  // let round = document.getElementById("round")
 
-  let data = JSON.parse(localStorage.getItem("cart"));
-  console.log(data)
+  // let fullname2 = document.getElementById("last")
 
-  form.addEventListener("submit",function(e){
-    e.preventDefault()
-    if (data===null){
-      data=[]
-    }
-    formdata = {
-      isd : numbers.value,
-      email : emails.value,
-      fullname :first.value,
-      fullname2 :last.value,
-      myInput : password.value,
-      mobileno : mobileno.value,
-      // myInput2 : c_password.value,
-      // round : round.value,
-      male : male.id,
-      female : female.id,
-      iwe : iwe.id
+  // let password = document.getElementById("myInput")
 
-    }
-    console.log(formdata)
-    data.push(formdata)
-    localStorage.setItem("cart",JSON.stringify(data))
-  })
+  // let mobileno = document.getElementById("mobileno")
 
+  // // let c_password = document.getElementById("myInput2")
+  // // let round = document.getElementById("round")
+
+  // let data = JSON.parse(localStorage.getItem("cart"));
+  // console.log(data)
+
+  // form.addEventListener("submit",function(e){
+  //   e.preventDefault()
+  //   if (data===null){
+  //     data=[]
+  //   }
+  //   formdata = {
+  //     isd : numbers.value,
+  //     email : emails.value,
+  //     fullname :first.value,
+  //     fullname2 :last.value,
+  //     myInput : password.value,
+  //     mobileno : mobileno.value,
+  //     // myInput2 : c_password.value,
+  //     // round : round.value,
+  //     male : male.id,
+  //     female : female.id,
+  //     iwe : iwe.id
+
+  //   }
+  //   console.log(formdata)
+  //   data.push(formdata)
+  //   localStorage.setItem("cart",JSON.stringify(data))
+  // })
+  
+let IsdNumber=document.getElementById("numbers")
+let MobNumber=document.getElementById("mobileno")
+let Email=document.getElementById("emails")
+let FirstName=document.getElementById("first")
+let LastName=document.getElementById("last")
+let Password=document.getElementById("myInput")
+let Gender=document.getElementById("Gender")
+
+
+
+let RegisterBtn=document.getElementById("Registerbtn")
+
+RegisterBtn.addEventListener("click",function(e){
+  alert("Register Successfully")
+  e.preventDefault();
+
+
+let isd=IsdNumber.value
+let mob=MobNumber.value;
+let email=Email.value;
+let First=FirstName.value;
+let last=LastName.value;
+let Pass=Password.value;
+let gender=Gender.value;
+
+
+registerusers(isd,mob,email,First,last,Pass,gender)
+
+
+})
+
+
+  //pass obj value inside a function;
+
+  function registerusers(isd,mob,email,First,last,Pass,gender){
+
+    fetch("https://diamond-xuwq.onrender.com/customerData",{
+    method : 'POST',
+    body:JSON.stringify({
+    name:`${First}${last}`,
+    isd:isd,
+    Mob:mob,
+    
+    Gender:gender,
+    pass:Pass,
+email:email
+    }),
+     headers : {
+      'Content-type':'application/json',
+     }
+    })
+  }

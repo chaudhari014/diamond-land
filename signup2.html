@@ -35,7 +35,7 @@
        <div id="number">
         <div class="ISD">
         <h2>ISD</h2>
-        <input type="text" name="isdcode" placeholder="91" maxlength="2" id="numbers">
+        <input type="text"  name="isdcode" placeholder="91" maxlength="2" id="numbers">
         
     </div>
         <div class="mobile-number">
@@ -50,42 +50,36 @@
        </div>
 
        <div id="fullname">
-        <div class="first">
-            <h2>First Name</h2>
-            <input type="text" id="first">
+      <div class="first">
+      <h2>First Name</h2>
+      <input type="text" id="first">
+      </div>
+
+        <div class="last">
+        <h2>Last Name</h2>
+        <input type="text" id="last">
         </div>
-          <div class="last">
-              <h2>Last Name</h2>
-              <input type="text" id="last">
-          </div>
-       </div>
+        </div>
 
-       <div id="pass">
+        <div id="pass">
         <h2>Password</h2>
- <input type="password" value="" id="myInput" >
+        <input type="password" value="" id="myInput" >
        <input type="checkbox" onclick="myFunction()">Show
-    </div> 
+       </div> 
 
-    <div id="confirm-pass">
+        <div id="confirm-pass">
         <h2>Confirm Password</h2>
- <input type="password" value="" id="myInput2" >
+       <input type="password" value="" id="myInput2" >
        <input type="checkbox" onclick="Toggle()">Show
-    </div> 
+      </div> 
 
-   <div id="round">
-    <label class="container">Male
-        <!-- <div id="male">Male</div> -->
-      <input type="radio" checked="checked" name="radio" id="male" >
-      <span class="checkmark"></span>
-    </label>
-    <label class="container">Female
-      <input type="radio" name="radio" id="female" >
-      <span class="checkmark"></span>
-    </label>
-    <label class="container">I don't want to specify
-      <input type="radio" name="radio" id="iwe">
-      <span class="checkmark"></span>
-    </label>
+      <div id="round">
+    <select name="" id="Gender">
+      <option value="">Gender</option>
+<option value="Male">Male</option>
+<option value="Female">Female</option>
+<option value="I dont want to specify">I dont want to specify</option>
+    </select>
 </div>
    
 
@@ -100,7 +94,7 @@
   </div>
 
  <div id="button">
- <button>REGISTER TO CONTINUE</button> 
+ <button id="Registerbtn">REGISTER TO CONTINUE</button> 
 
   </div> 
 
