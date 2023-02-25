@@ -269,13 +269,22 @@
         <img id="forword-button" src="/logo/icons/right-arrow.png" alt="">
         <img id="backword-button" src="/logo/icons/left-arrow.png" alt=""></div>
     </div>
-
+    
     
  <div id="sort-data">
     <div >
         <input type="number" id="low-number" class="low-number" placeholder="Type Minimum Amount">
         <input type="number" id="high-number" class="low-number" placeholder="Type Maximum Amount">
           <button>filter</button>
+    </div>
+
+    <div>
+        <select name="Sort By:Featured" id="select-filter">
+            <option value="">Sort By:Featured</option>
+            <option value="desc">Price : High to Low</option>
+            <option value="asc">Price : Low to High</option>
+            <option value="Rating">Rating High</option>
+        </select>
     </div>
  </div>
 
@@ -298,5 +307,6 @@
             <!-- append here item -->
         </div>
     </div>
+    <div class="pagination-wrapper" id="pagination-wrapper"></div>
 </html>
 <script src="/javascript/product.js"></script>
