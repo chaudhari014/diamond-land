@@ -22,6 +22,9 @@ let productpurity = document.getElementById('productpurity')
 // checkbox is checked or not ;
 let postrequest = document.getElementById('post');
 let putrequest = document.getElementById('put')
+
+
+let productdatashow = document.getElementById('productdatashow');
 //-----------------------------------
 // ordertab.style.display = 'none'
 // producttab.style.display = 'none'
@@ -68,6 +71,7 @@ orderbutton.addEventListener('click',()=>{
 })
 
 productbutton.addEventListener('click',()=>{
+    fetchandgetdata()
     producttab.style.display = 'block'
     ordertab.style.display = 'none'
     customertab.style.display = 'none'
@@ -98,6 +102,7 @@ productbutton.addEventListener('click',()=>{
 
 
 customerbutton.addEventListener('click',()=>{
+    fetchandgetdatacustomer();
     customertab.style.display = 'block'
     ordertab.style.display = 'none'
     producttab.style.display = 'none'
@@ -178,5 +183,49 @@ productAddOrUpdatebutton.addEventListener('click',(e)=>{
     
 })
 
+async function fetchandgetdata() {
+    let req = await fetch(`https://diamond-xuwq.onrender.com/Product?adminId=35`)
+    let data = await req.json();
+    console.log(data);
+    getcards(data)
+}
 
-div.style.display  = 'none'
+//fetchandgetdata()
+
+
+function getcards(data) {
+    let cards = data.map((ele)=>{
+        return getcard(ele.id,ele.name)
+    }).join('')
+    productdatashow.innerHTML = cards;
+}
+
+function getcard(name) {
+     let inventory = Math.floor(Math.random()*99)
+    let avavlity = ''; 
+    if(inventory<25) {
+        avavlity = "Low"
+    }else{
+        avavlity = "High"
+    }
+    let  card = `
+    <tr class="trows">
+    <td>${name}</td>
+    <td>Published</td>
+    <td>${avavlity}</td>
+    <td>${inventory}</td>
+    <td>Edit</td>
+</tr>
+    `
+    return card;
+}
+
+
+async function fetchandgetdatacustomer() {
+    let req = await fetch(`https://diamond-xuwq.onrender.com/Product?adminId=35`)
+    let data = await req.json();
+    console.log(data);
+    getcards(data)
+}
+
+fetchandgetdatacustomer()
