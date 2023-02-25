@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-size: 1.4em;
+  /* font-size: 1.4em; */
   overflow-x: hidden;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   margin-top: 0px !important;
@@ -9,11 +9,11 @@ body {
 .home-page {
   font-family: "MulRegular", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-* {
+/* * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
+} */
 *,
 ::before,
 ::after {
@@ -90,7 +90,7 @@ input {
 .nav-top2 {
   animation: myAnim 3s ease 2s infinite normal forwards;
   width: 50%;
-  font-size: 5px;
+  font-size: 8px;
   word-spacing: 3px;
   color: #fff;
 }
@@ -309,9 +309,14 @@ input {
 }
 .responsive-menu-list {
   display: flex;
-  width: 100%;
-  margin: auto;
+  width: 95%;
+  margin-left: 15px;
   font-size: 20px;
+  padding: 10px 15px 10px 15px;
+  /* background-color: red; */
+}
+.responsive-menu-list p{
+  font-size: 12px;
 }
 
 .responsive-list {

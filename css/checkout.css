@@ -6,6 +6,9 @@ body{
     margin: 0;
     padding: 0;
 }
+#logo{
+    width: 100%;
+}
 
 #navbar{
     background-color: plum;
@@ -24,15 +27,18 @@ body{
 }
 #right{
     background-color: white;
-    height: 500px;
-    width: 38%;
+    width: 35%;
     padding: 15px;
+    padding-right: 35px;
     position: fixed;
     right: 0;
-    font-size: 13px;
+    font-size: 11px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    overflow: auto;
+
 }
 #box{
-    margin-top: 70px;
+    margin-top: 170px;
 }
 #right h3{
     margin-top: -5px;
@@ -40,33 +46,30 @@ body{
 #purchasedatashow{
     padding: 15px 0 15px 0px;
     background-color: rgb(196, 191, 191);
+    /* height: 300px; */
 }
 #purchasepriceshow{
     font-weight: lighter;
     margin-top: 15px;
     border-top: 1px solid black;
+    /* background-color: red; */
 }
 
 #purchasepriceshow>div{
     display: flex;
     justify-content: space-between;
-    line-height: 0pt;
+    margin: 0;
+    height: 20px;
+
 }
 #purchasepriceshow>div:nth-child(1){
-    margin-bottom: 5px;
-}
-#purchasepriceshow>div:nth-child(2){
-    margin: 0px;
-    padding: 0;
-}
-#purchasepriceshow>div:nth-child(3){
-    margin-top: -15px;
-    padding: 0px;
+    margin-bottom: 3px;
 }
 #purchasepriceshow>div:nth-child(4){
-    margin-top: -15px;
-    padding: 0px;
+
+    padding-bottom: 10px ;
 }
+
 #purchasepriceshow>div:nth-child(5){
      border-top: 1px solid black;
      padding-top: 10px ;
@@ -107,9 +110,6 @@ body{
     background: linear-gradient(to right, #c65bdc, #4806cd);
 }
  /* we use to display none in js  */
-#logininfo{
-    /* display: none; */
-}
 
 #logininfo p{
     width: 98%;
@@ -128,8 +128,9 @@ body{
     font-size: 15px;
 }
 #logininfo>p:nth-child(1){
-    font-size: 14px;
+    font-size: 12px;
     color: black;
+    padding: 12px;
 }
 #logininfo button + p{
     font-size: 13px;
@@ -164,6 +165,7 @@ body{
     color: white;
     padding: 4px;
     border: 1px solid white;
+    
 }
 #giftmessage>div:nth-child(1) p{
     padding-left: 15px;
@@ -208,7 +210,9 @@ body{
     font-size: bold;
     border-radius: 5px;
     border: none;
+
 }
+
  #box #giftmessage_div5 button:hover {
     background: linear-gradient(to right, #c65bdc, #4806cd);
 }
@@ -226,7 +230,13 @@ body{
 #addressinfo >div:nth-child(1){
     background-color: black;
     color: white;
-    padding: 19px;
+    padding: 4px;
+    border: 1px solid white;
+}
+#addressinfo >div:nth-child(1) p{
+    
+    padding-left: 15px;
+    
 }
 #addressinfo >div:nth-child(2){
     padding-left: 15px;
@@ -298,3 +308,103 @@ body{
 #paymentmodebutton:hover{
     background: linear-gradient(to right, #c65bdc, #4806cd);
 }
+
+#paymetntypebox {
+    display: flex;
+}
+#paymentbar>div:nth-child(1) {
+    background-color: black;
+    color: white;
+    padding: 4px;
+    border: 1px solid white;
+}
+#paymentbar>div:nth-child(1) p {
+    margin-left: 16px;
+}
+#paymetntypebox img{
+    width: 20%;
+    padding-left: 40%;
+}
+#upibox{
+    color: #D059E8;
+    font-weight: bold;
+}
+#upitype2{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding-left: 25px;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+#upitype2>div{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+#upitype2>div input{
+    margin-top: 20px;
+    padding: 15px;
+    width: 80%;
+}
+#upitype2>div button{
+    margin-top: 25px;
+    padding: 10px;
+    width: 60%;
+    background: linear-gradient(to right, #D059E8, #9462F8);
+    color: white;
+    font-size: bold;
+    border-radius: 5px;
+    border: none;
+}
+#upitype2>div button:hover{
+    background: linear-gradient(to right, #c65bdc, #4806cd);
+}
+
+#paymetntypebox>div:nth-child(1){
+    padding-right: 25px; 
+    font-size: 13px;
+}
+#paymetntypebox>div:nth-child(1) p{
+    padding: 5px;
+    text-align: center;
+}
+#paymetntypebox>div:nth-child(1) input{
+    display: block;
+    margin-left: 40%;
+}
+
+#paymentbar h4{
+    padding: 15px;
+}
+
+@media  screen and (max-width:480px) {
+    #box{
+        margin-top: 280px;
+    }
+
+    #right{
+        display: none;
+    }
+    #left{
+        width: 100%;
+    }
+}
+@media  screen and (max-width:780px) {
+    
+    #box{
+        margin-top: 280px;
+        background-color: red;
+    }
+    #right{
+        display: none;
+    }
+    #left{
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
