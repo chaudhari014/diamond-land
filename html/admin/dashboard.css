@@ -235,6 +235,11 @@ button{
     margin-left: 25px;
 }
 
+td{
+    text-align: center;
+    padding: 4px;
+}
+
 /* medium screen css */
 @media screen and (max-width: 770px) and (min-width: 400px){
     #left{
