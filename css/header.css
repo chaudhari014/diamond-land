@@ -290,7 +290,7 @@ input {
   background-color: #fff5fe;
 }
 .search {
-  /* border: 1px solid gray; */
+  border: 1px solid gray;
   border-radius: 5px;
   margin-top: 3px;
   width: 80%;
@@ -427,8 +427,147 @@ input {
 }
 
 /* menu hover effects */
-.menu2:hover {
+.main-hover,
+.main-hover2,
+.main-hover3 {
+  display: none;
+  z-index: 10;
+  visibility: hidden;
 }
+.rings {
+  position: relative;
+  z-index: 2;
+  transition: height 500ms;
+  display: flex;
+  width: 100%;
+  height: 400px;
+  font-size: 13px;
+  justify-content: space-around;
+  align-items: flex-start;
+  /* animation: myAnim 1s ease 0s infinite normal forwards; */
+}
+.rings .heading {
+  padding: 15px;
+  color: black;
+  border-bottom: 2px solid rgb(187, 2, 207);
+}
+.rings a {
+  text-decoration: none;
+  color: gray;
+}
+.rings a:hover {
+  font-size: 14px;
+  color: black;
+}
+.rings > div div img {
+  width: 50px;
+}
+.rings > div div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* flex-direction: column; */
+}
+#shop-by-metal img {
+  padding: 12px;
+  width: 17px;
+}
+.shopby a {
+  font-size: 15px;
+  padding: 8px;
+  display: block;
+}
+.earrings {
+  position: relative;
+  z-index: 2;
+  transition: height 500ms;
+  display: flex;
+  width: 100%;
+  height: 400px;
+  font-size: 13px;
+  justify-content: space-around;
+  align-items: flex-start;
+  /* animation: myAnim 1s ease 0s infinite normal forwards; */
+}
+.earrings .heading {
+  padding: 15px;
+  color: black;
+  border-bottom: 2px solid rgb(187, 2, 207);
+}
+.earrings a {
+  text-decoration: none;
+  color: gray;
+}
+.earrings a:hover {
+  font-size: 14px;
+  color: black;
+}
+.earrings > div div img {
+  width: 50px;
+}
+.earrings > div div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* flex-direction: column; */
+}
+#shop-by-metal img {
+  padding: 12px;
+  width: 17px;
+}
+.shopby a {
+  font-size: 15px;
+  padding: 8px;
+  display: block;
+}
+.bangles {
+  position: relative;
+  z-index: 2;
+  transition: height 500ms;
+  display: flex;
+  width: 100%;
+  height: 400px;
+  font-size: 13px;
+  justify-content: space-around;
+  align-items: flex-start;
+  /* animation: myAnim 1s ease 0s infinite normal forwards; */
+}
+.bangles .heading {
+  padding: 15px;
+  color: black;
+  border-bottom: 2px solid rgb(187, 2, 207);
+}
+.bangles a {
+  text-decoration: none;
+  color: gray;
+}
+.bangles a:hover {
+  font-size: 14px;
+  color: black;
+}
+.bangles > div div img {
+  width: 50px;
+}
+.bangles > div div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* flex-direction: column; */
+}
+#shop-by-metal img {
+  padding: 12px;
+  width: 17px;
+}
+.shopby a {
+  font-size: 15px;
+  padding: 8px;
+  display: block;
+}
+
+/* .first-display-responsive-image {
+  display: none;
+  visibility: hidden;
+} */
 
 @media only screen and (max-width: 1000px) {
   .nav2,
@@ -452,6 +591,10 @@ input {
     display: none;
   }
   .menu-bar-responsive {
+    display: block;
+    visibility: visible;
+  }
+  .first-display-responsive-image {
     display: block;
     visibility: visible;
   }
