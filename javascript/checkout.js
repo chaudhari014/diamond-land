@@ -15,7 +15,12 @@ let addressblack = document.querySelector('#addressinfo >div:nth-child(1)');
 let payamountbutton = document.getElementById('payamountbutton');
 let gifttextarea = document.getElementById('gifttextarea');
 let upiinput = document.getElementById('upiinput');
-let sign = localStorage.getItem('sign') || true;
+let cartshow = document.getElementById('purchasedatashow');
+let totalcxhastopay = document.getElementById('totalcxhastopay');
+let extraoff = document.getElementById('extra3');
+let cartdiscount = document.getElementById('cartdiscount');
+let subtotal = document.getElementById('subtotal')
+let sign = JSON.parse(localStorage.getItem('sign')) || true;
 let address = localStorage.getItem('address') || false;
 //---------------------------------------------
 
@@ -34,6 +39,7 @@ officeselectedbutton.addEventListener('click',()=>{
     homeselectedbutton.style.color = 'black'
     console.log('h')
 })
+
 let accesskey = 1;
 
 if(accesskey) {
@@ -42,19 +48,23 @@ if(accesskey) {
     loginbarblack.style.padding = '0px';
 
 }else{
-    giftbar.style.display='none'
-    addressbar.style.display='none'
-    paymentbar.style.display='none'
+   giftbar.style.display='none'
+   addressbar.style.display='none'
+   paymentbar.style.display='none'
     paymentbar2.style.display='none'
 }
+
+
 // check if sign is T/F; if true that mean cx. have enter the message or cx. don't want to enter message;
 
-if(sign!=='true') {
-    console.log(sign);
-    giftbar.style.display='none'
-    giftbarblack.style.backgroundColor = 'green'
-    giftbarblack.style.padding = '0px';
-}
+
+//  console.log(sign)
+// if(sign!=="true") {
+//     console.log(sign);
+//     giftbar.style.display='none'
+//     giftbarblack.style.backgroundColor = 'green'
+//     giftbarblack.style.padding = '0px';
+// }
 
 
 
@@ -65,8 +75,8 @@ giftbarbutton.addEventListener('click',()=>{
         giftbar.style.display='none'
         giftbarblack.style.backgroundColor = 'green'
         giftbarblack.style.padding = '0px';
-         sign = false;
-        localStorage.setItem('sign',sign)
+         sign = true;
+         localStorage.setItem('sign',JSON.stringify(sign) )
      }, 1000);
    }else if(sign){
         alert('You can Enter Message for your Beloved');
@@ -74,13 +84,13 @@ giftbarbutton.addEventListener('click',()=>{
    }
 })
 
-giftbarblack.addEventListener('click',()=>{
-    giftbar.style.display='block'
-    giftbarblack.style.backgroundColor = 'black'
-        giftbarblack.style.padding = '4px';
-    sign=true;
-    localStorage.setItem('sign',sign)
-})
+// giftbarblack.addEventListener('click',()=>{
+//     giftbar.style.display='block'
+//     giftbarblack.style.backgroundColor = 'black'
+//         giftbarblack.style.padding = '4px';
+//         sign = false;
+//         localStorage.setItem('sign',JSON.stringify(sign) )
+// })
 
 
 
@@ -143,3 +153,123 @@ payamountbutton.addEventListener('click',()=>{
         alert('bad')
     }
 })
+
+// collect the cartdata from localStorage and append in the checkoutpage
+
+let cartdata = [2154,2145,2155];
+
+for (let i=0; i<cartdata.length; i++) {
+    fetchandrender(cartdata[i]);
+   // console.log(cartdata[i])
+}
+
+async function fetchandrender(id){
+    let request = await fetch(`https://diamond-xuwq.onrender.com/Product/${id}`);
+    let data = await request.json();
+
+    //console.log(data);
+    displaydata(data)
+}
+
+
+let total = 0; 
+
+let past = null;
+
+function displaydata(ele) {
+    total+=ele.price;
+
+     let cards = getcards(ele.img,ele.price,ele.title,ele.ratting,ele.id)
+
+    cartshow.innerHTML += cards; 
+    
+
+    let selecttags = document.querySelectorAll('.quantity');
+    //console.log(total);
+    for(let selects of selecttags) {
+        selects.addEventListener('change',(e)=>{
+            let quantityval = selects.value;
+            let prices = e.target.dataset.price;
+            let newtotal = (prices-1*quantityval);
+           
+            console.log(past)
+            if(past==null) {
+                total+=newtotal;
+            }else{
+                total-=((past-1)*prices);
+                console.log(total,past-1,prices);
+                total+=(quantityval-1)*prices;
+
+                console.log(total,quantityval-1,prices);
+            }
+            subtotal.innerText = total;
+            let discountval = (total*0.1).toFixed(1)
+            let discount = total-(total*0.1).toFixed(1)
+            cartdiscount.innerText = discountval;
+            let extraval = (discount*0.03).toFixed(1)
+            extra3 = discount-(discount*0.03).toFixed(1)
+            extraoff.innerText = extraval;
+            totalcxhastopay.innerText = extra3.toLocaleString();
+
+            
+            //totalcxhastopay.innerText = total;
+            past = selects.value;
+        })
+
+    }
+    
+            subtotal.innerText = total;
+            let discountval = (total*0.1).toFixed(1)
+            let discount = total-(total*0.1).toFixed(1)
+            cartdiscount.innerText = discountval;
+            let extraval = (discount*0.03).toFixed(1)
+            extra3 = discount-(discount*0.03).toFixed(1)
+            extraoff.innerText = extraval;
+            totalcxhastopay.innerText = extra3.toLocaleString();
+
+    let buttons = document.querySelectorAll('.cards button')
+
+    for (let button of buttons) {
+        button.addEventListener('click',(e)=>{
+            removeele(e.target.dataset.id)
+        })
+    }
+    console.log(buttons)
+  
+}
+
+
+function getcards(img,price,title,ratting,id) {
+    let cards = `
+    <div data-id=${id} class="cards">
+  <div>
+    <img src=${img} alt="diamondLand">
+  </div>
+  <div>
+    <div>
+      <h2>${title}</h2>
+    <span>Quantity:</span>
+    <select name="number" class="quantity" data-price=${price}>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+        </select>
+        <button data-id=${id}>Buy Later</button>
+        </div>
+     <div>
+      <h5>Delivery by -2nd to 3rd Mar</h5>
+      <h3>₹${price}</h3>
+     </div>
+  </div>
+</div>
+    `
+    return cards;
+}
+
+
+
+function removeele(id) {
+    
+}

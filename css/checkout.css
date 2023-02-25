@@ -23,17 +23,19 @@ body{
 
 #left{
     background-color: #F6EFF6;
-    width: 59%;
+    width: 57%;
+    margin-right: 25px;
 }
 #right{
     background-color: white;
     width: 35%;
     padding: 15px;
-    padding-right: 35px;
-    position: fixed;
-    right: 0;
+    padding-right: 25px;
+    /* position: fixed; */
+    right: 1;
     font-size: 11px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    height: 500px;
     overflow: auto;
 
 }
@@ -45,7 +47,7 @@ body{
 }
 #purchasedatashow{
     padding: 15px 0 15px 0px;
-    background-color: rgb(196, 191, 191);
+    background-color: #F2E7FF;
     /* height: 300px; */
 }
 #purchasepriceshow{
@@ -60,6 +62,7 @@ body{
     justify-content: space-between;
     margin: 0;
     height: 20px;
+   
 
 }
 #purchasepriceshow>div:nth-child(1){
@@ -73,6 +76,33 @@ body{
 #purchasepriceshow>div:nth-child(5){
      border-top: 1px solid black;
      padding-top: 10px ;
+     padding-bottom: 30px;
+}
+.cards{
+    display: flex;
+    justify-content: space-around;
+    margin: 15px;
+    border: 1px solid gray;
+   
+}
+.cards>div:nth-child(1){
+    width:60%;
+}
+.cards>div:nth-child(2){
+   padding: 25px;
+}
+.cards img{
+    width:100%;
+}
+.cards select{
+    padding: 15px;
+}
+.cards button{
+    padding: 2px;
+    background-color: #9462F8;
+    border: none;
+    color: white;
+    border-radius: 1px;
 }
 
 /* leftside css */
@@ -119,7 +149,10 @@ body{
 }
 #logininfo a{
     text-decoration: none;
-    color: #E78EEC;
+    margin-left: 15px;
+    font-size: 15px;
+    font-weight: bolder;
+    color:#9462F8;
 }
 
 #loginshowemailid{
@@ -331,9 +364,10 @@ body{
 }
 #upitype2{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    padding-left: 25px;
+    padding-left: 20px;
     padding-bottom: 20px;
     margin-bottom: 30px;
+    padding-right: 20px;
 }
 #upitype2>div{
     padding: 15px;
@@ -375,6 +409,9 @@ body{
 #paymentbar h4{
     padding: 15px;
 }
+#right select{
+    padding: 1px;
+}
 
 @media  screen and (max-width:480px) {
     #box{
@@ -392,7 +429,7 @@ body{
     
     #box{
         margin-top: 280px;
-        background-color: red;
+        /* background-color: red; */
     }
     #right{
         display: none;
