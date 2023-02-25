@@ -3,7 +3,7 @@
 #Main-container{
    margin: auto;
    align-items: center;
-   width: 45%;
+   width: 35%;
 }
 
 h1{
@@ -20,16 +20,18 @@ h1{
    display: flex;
    justify-content: center; 
    align-items: center;
+   padding: 5px 30px;
   
 }
 .google{
-   font-size: 15px;
-    margin-left: 80px;
+   font-size: 25px;
+    margin-left: 100px;
    
    
 }
 .Facebook{
-   font-size: 15px;
+   font-size: 25px;
+   padding: 15px;
 
 }
  .or h3{
@@ -45,13 +47,16 @@ gap: 47px;
    color: #100532;
 }
 .ISD input{
- padding: 10px;
+ padding: 10px 00px;
   border-radius: 5px;
 
 }
+
 .mobile-number input{
-   font-size: 35px ;
+   font-size: 18px ;
+   padding: 18px 80px;
    border-radius: 5px;
+   border-radius: 10px;
 
 }
 #email {
@@ -61,25 +66,27 @@ gap: 47px;
    color: #1f143f;
 }
 #email input {
-   font-size: 25px;
-   padding: 15px 80px;
+   font-size: 18px;
+   padding: 15px 100px;
+   border-radius: 10px;
 }
 #fullname {
    display: flex;
    /* padding-left: 500px; */
-   gap: 50px
-   ;
+   gap: 50px  ;
 }
 .first input {
-   padding: 15px;
-   font-size: 20px;
+   padding: 15px 30px;
+   font-size: 15px;
+   border-radius: 10px;
 }
 .first h2 {
    color: #1f143f;
 }
 .last input {
-   padding: 15px;
-   font-size: 20px;
+   padding: 15px 30px;
+   font-size: 18px;
+   border-radius: 10px;
 }
 .last h2 {
    color: #1f143f;
@@ -89,16 +96,20 @@ gap: 47px;
   
 }
 #pass input {
-  padding: 18px 100px;
+  padding: 18px 80px;
+  font-size: 18px;
+    border-radius: 10px;
 }
-#pass input{
+/* #pass input{
    font-size: 18px;
-}
+} */
 #confirm-pass{
    /* padding-left: 500px; */
 }  
 #confirm-pass input {
-   padding: 18px 100px;
+   padding: 18px 80px;
+    font-size: 18px;
+    border-radius: 10px;
  }
  #confirm-pass input{
     font-size: 18px;

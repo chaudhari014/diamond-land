@@ -5,78 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN page </title>
-    <style>
-      h3{
-        text-align: center;
-      }
-
-      #main {
-   /* background-color: red; */
-   display: flex;
-   justify-content: center;
-
-   
-}
-#main  button {
-   display: flex;
-   justify-content: center; 
-   align-items: center;
-  
-}
-.google{
-   font-size: 15px;
-    margin-left: 80px;
-   
-   
-}
-.Facebook{
-   font-size: 15px;
-
-}
-      h4 {
-        text-align: center;
-      }
-      #button button {
-        padding: 20px 180px;
-     /* padding-left: 400px; */
-      }
-      #button{
-        padding-left: 550px;
-      }
-      #button h3 {
-        padding-right: 550px;
-      }
-      #email {
-        padding: 20px 160px;
-      }
-      #password {
-        padding: 20px 160px;
-        padding-top: 20px;
-      }
-      #password button {
-        padding-top: 50px;
-      }
-      #continue {
-        padding: 50px  600px;
-        
-        
-      }
-      #continue button {
-        padding: 20px 140px;
-        font-size: 18px;
-        border-radius: 10px;
-        background-image: linear-gradient(to right, rgb(182, 56, 240) , rgb(122, 111, 235));;
-
-      }
-      #last {
-        text-align: center;
-      }
-    </style>
+     <link rel="stylesheet" href="login.css">
 </head>
 <body>
     
-<h3>LOGIN to Diamond Land  </h3>
-
+<h1>---LOGIN to Diamond Land---  </h1>
+<div class="container">
 
     <div id="main">
       <button class="Facebook">
@@ -90,17 +24,18 @@
         </button>
   </div>
 
-<h4>or</h4>
+<h3>or</h3>
 
  <div id="button">
-  <h3>Enter Mobile Number or Email</h3>
-  <form>
+     <h2> Email Address</h2>
+       <form>
             
             <div class="email">
-              <input type="email" id="email" class="form-control" />
+              <input type="email" id="email"  />
             </div>
-            <div class="email2">
-              <input type="password" id="password" class="form-control" />
+            <h2>password</h2>
+            <div class="password">
+              <input type="password" id="password"  />
             </div>
 
  </div>
@@ -111,8 +46,9 @@
  <h3>---or---</h3>
 
  <div id="last">
-  <h2>New To Diamod Land ? create an account</h2>
+  <h2> New To Diamod Land ? <a href="./signup2.html">create an account</a> </h2>
  </div>
+</div>
 </body>
 <script src="./login.js"></script>
 </html> 
