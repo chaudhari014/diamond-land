@@ -38,6 +38,7 @@
    border-radius:100%;
    border: solid 3px #8863fb;
    background-color: #f6f3f9;
+   cursor: pointer;
 }
 #change-image-div{
     width: 100%;
@@ -100,22 +101,27 @@ input::-webkit-outer-spin-button,
     font-size: 20px;
     padding: 5px 20px 5px 20px;
     background: linear-gradient(to right, #D059E8, #9462F8);
-    border: 0.5 solid  black;
+    border: 0.1 solid  black;
+    cursor: pointer;
+}
+#sort-data button:hover{
+    background: linear-gradient(to right, #c65bdc, #4806cd);
 }
 #sort-data>div:nth-child(2){
     margin-left: 70vh;
 }
 
 #select-filter{
-    font-size: 20px;
+    font-size: 15px;
     outline: none;
-    padding: 5px;
+    padding: 10px 15px 10px 15px;
+    cursor: pointer;
 }
 /* ------------------product- css----------------------------------- */
 #container{
     display: grid;
     width: 75%;
-    gap: 10px;
+    gap: 15px;
     grid-template-columns:repeat(3,1fr) ;
     font-size: 20px;
     line-height: 0;
@@ -129,6 +135,7 @@ input::-webkit-outer-spin-button,
 }
 .price-div>p:nth-child(2){
     color: #1E88E5;
+    cursor: pointer;
 }
 .rating-div>p img{
     width: 6%;
@@ -147,17 +154,21 @@ input::-webkit-outer-spin-button,
 }
 .rating-div{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    
 }
 .rating-div button{
-    display: block;
-    width: 90%;
+    width: 100%;
     background-color: white;
     font-size: 20px;
     padding: 0px 0px;
     cursor: pointer;
-
+    border-radius: 8px;  
     
+}
+.rating-div button:hover{
+    background-color: #8863fb;
+    font-size: 22px;
 }
 /* ------------------------------------------------pagination---------------------------------- */
 .pagination-wrapper {
@@ -186,3 +197,20 @@ input::-webkit-outer-spin-button,
 .rahul{
     font-size: 25px;
 }
+@media only screen and (max-width:840px) {
+    #container{
+        grid-template-columns: repeat(2,1fr);
+    }
+    #select-filter{
+        display: none;
+    }
+} 
+@media only screen and (max-width:500px) {
+    #container{
+        grid-template-columns: repeat(1,1fr);
+    }
+    #filter-data{
+        display: none;
+    }
+}   
+
