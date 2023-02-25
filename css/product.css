@@ -1,0 +1,92 @@
+#maincontainer{
+    display: flex;
+}
+#filter-data{
+    position: relative;
+    width: 20%;
+    margin-left:5%;
+    border-radius:40px 40px 0px 0px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    font-family: 'MuliBold','Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 1.4rem;
+}
+
+#filter-data>div:first-child{
+   width: 100%;
+   height: 50px;
+   display: flex;
+  border-radius:30px 30px 0px 0px;
+   background-color: #bf85ee;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+
+}
+.filter-data{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.checkbox-product{
+    margin-right:10%;
+    margin-bottom:5%;
+   flex: 0 0 auto;
+   width: 18px;
+   height: 18px;
+   border-radius:100%;
+   border: solid 3px #8863fb;
+   background-color: #f6f3f9;
+}
+#change-image-div{
+    width: 100%;
+}
+#change-image-div img{
+    width: 100%;
+}
+#change-image-div>div img{
+     width: 3%;  
+}
+#change-image-div>div img:hover{
+    cursor: pointer;
+    width: 4%;
+    font-size: 60px;
+}
+#forword-button{
+    position: absolute;
+    top: 45%;
+    right: 5%;
+}
+#backword-button{
+    position: absolute;
+    top: 45%;
+    left: 5%;
+}
+#filter-data h4{
+    margin-bottom: 10px;
+    margin-top: 15px;
+    border-bottom: 0.5px solid #4f3267;
+}
+#sort-data>div{
+    display:flex ;
+    height: 80px;
+    margin-left: 5%;
+    align-items: center;
+}
+#sort-data{
+    margin-top: 0px;
+    background-color: #bf85ee;
+    margin-bottom: 10px;
+}
+.low-number{
+    font-size: 20px;
+   outline: none;
+   text-decoration: none;
+   background-color: white;
+   margin-right: 5px;
+}
+#sort-data button{
+    font-size: 20px;
+    padding: 0px 10px 0px 10px;
+    background-color:linear-gradient(to right, #de57e5 0%, #8863fb 100%)
+
+}
+
