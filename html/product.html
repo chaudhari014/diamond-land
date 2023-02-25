@@ -95,7 +95,7 @@
                           name="search"
                           placeholder="Search"
                         />
-                        <button class="greadient">
+                        <button class="greadient" id="searchclick">
                           <img
                             class="icon-image"
                             src="/logo/icons/search.png"
@@ -134,13 +134,13 @@
                         <a href="#">
                           <img src="/logo/icons/heart-3-fill.png" alt="" />
                         </a>
-                        <button class="greadient number">o</button>
+                        <button class="greadient number" id="rahul-1">o</button>
                       </div>
                       <div class="nav-icon">
                         <a href="#"
                           ><img src="/logo/icons/shopping-bag-fill.png" alt=""
                         /></a>
-                        <button class="greadient number">o</button>
+                        <button class="greadient number" id="rahul-2">o</button>
                       </div>
                     </div>
                   </div>
@@ -275,7 +275,7 @@
     <div >
         <input type="number" id="low-number" class="low-number" placeholder="Type Minimum Amount">
         <input type="number" id="high-number" class="low-number" placeholder="Type Maximum Amount">
-          <button>filter</button>
+          <button id="pricefilter">filter</button>
     </div>
 
     <div>
@@ -294,11 +294,11 @@
         <div class="filter-data">
             <h4>Product Type</h4>
             <div><input type="checkbox" class="checkbox-product" id="Earrings"><label >Earrings</label></div>
-            <div><input type="checkbox" class="checkbox-product" id="Rings"><label >Rings</label></div>
-            <div><input type="checkbox" class="checkbox-product" id="Necklaces"><label >Necklaces</label></div>
+            <div><input type="checkbox" class="checkbox-product" id="Ring"><label >Rings</label></div>
+            <div><input type="checkbox" class="checkbox-product" id="Necklace"><label >Necklaces</label></div>
             <div><input type="checkbox" class="checkbox-product" id="Pendants"><label >Pendants</label></div>
             <div><input type="checkbox" class="checkbox-product" id="Bracelets"><label >Bracelets</label></div>
-            <div><input type="checkbox" class="checkbox-product" id="Bangles"><label >Bangles</label></div>
+            <div><input type="checkbox" class="checkbox-product" id="Bangle"><label >Bangles</label></div>
         </div>
         
        </div>
@@ -308,5 +308,6 @@
         </div>
     </div>
     <div class="pagination-wrapper" id="pagination-wrapper"></div>
+    
 </html>
 <script src="/javascript/product.js"></script>
