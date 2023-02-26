@@ -141,13 +141,7 @@ function rederdata(data){
             rahul_2.innerText=LSdata.length
             LSdata.push(e.target.dataset.productId)
             localStorage.setItem("product",JSON.stringify(LSdata))
-<<<<<<< HEAD
-            let cartbuttonshow = document.getElementById('cartbuttonshow');
-
-            cartbuttonshow.innerText = LSdata.length ;
-=======
             }
->>>>>>> 26fb3196a08ce77e864fd1fd0a93a6c2b0127798
         })
     }
     
