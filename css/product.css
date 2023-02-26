@@ -1,3 +1,4 @@
+
 #maincontainer{
     display: flex;
     
@@ -129,8 +130,11 @@ input::-webkit-outer-spin-button,
     gap: 15px;
     grid-template-columns:repeat(3,1fr) ;
     font-size: 20px;
-    line-height: 0;
+    line-height: 0px;
     margin-right: 5%;
+}
+#container .product-div>p{
+   line-height: 20px;
 }
 .card-image-div{
     width: 100%;
@@ -143,10 +147,13 @@ input::-webkit-outer-spin-button,
     cursor: pointer;
 }
 .rating-div>p img{
-    width: 6%;
+    width: 15%;
 }
 .price-div>p img{
     width: 10%;
+}
+.price-div{
+    padding: 10px;
 }
 /* .price-div>p:nth-child(2){
    display: flex;
@@ -156,17 +163,25 @@ input::-webkit-outer-spin-button,
     /* border: 2px solid black; */
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     background-color: white;
+    padding: 15px;
 }
 .rating-div{
     display: flex;
-    justify-content: space-between;
-    
+    justify-content: space-around;
+    align-items: center;
+    /* border: 1px solid black; */
+    width: 100%;
+}
+.rating-div>p:first-child{
+    /* display: inline; */
+    width:40%;
+    /* border: 1px solid black; */
 }
 .rating-div button{
-    width: 100%;
+    /* width: 100%; */
     background-color: white;
-    font-size: 20px;
-    padding: 0px 0px;
+    font-size: 25px;
+    padding: 5px 10px;
     cursor: pointer;
     border-radius: 8px;  
     
@@ -202,20 +217,43 @@ input::-webkit-outer-spin-button,
 .rahul{
     font-size: 25px;
 }
-@media only screen and (max-width:840px) {
+@media only screen and (max-width:940px) {
     #container{
         grid-template-columns: repeat(2,1fr);
     }
     #select-filter{
         display: none;
     }
+    /* #filter-data{
+       
+        display: none;
+    } */
 } 
-@media only screen and (max-width:500px) {
+@media only screen and (max-width:600px) {
     #container{
         grid-template-columns: repeat(1,1fr);
+        margin-left: 10%;
     }
     #filter-data{
         display: none;
     }
-}   
+    .low-number{
+        display: none;
+    }
+    #pricefilter{
+        display: none;
+    }
+    #sort-data{
+        display: none;
+    }
+    
+}  
+@media only screen and (max-width:1250px) {
+    /* #container{
+        grid-template-columns: repeat(1,2fr);
+    } */
+    #sort-data>div:last-child{
+        display: none;
+    }
+}  
 
