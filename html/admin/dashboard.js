@@ -186,16 +186,24 @@ productAddOrUpdatebutton.addEventListener('click',(e)=>{
         let type  = producttype.value;
         let img = productimg.value;
         let adminId = 35; 
+        let ratting = 4.2; 
         fetch(`https://diamond-xuwq.onrender.com/Product/${id}`,{
             method: 'PUT',
             headers:{"Content-Type": "application/json"},
-            body: JSON.stringify({id,title,price,type,img,adminId})
+            body: JSON.stringify({id,title,price,type,img,adminId,ratting})
         })
         .then((req)=> req.json())
         .then((data)=>{
             console.log(data);
 
             fetchandgetdata()
+            setTimeout(() => {
+                productname.value = '';
+                productimg.value = '';
+                productprice.value = '';
+                producttype.value = '';
+                productid.value = '';
+            }, 500);
             
         })
 
@@ -208,15 +216,23 @@ productAddOrUpdatebutton.addEventListener('click',(e)=>{
         let type  = producttype.value;
         let img = productimg.value;
         let adminId = 35; 
+        let ratting = 4.2; 
         fetch(`https://diamond-xuwq.onrender.com/Product`,{
             method: 'POST',
             headers:{"Content-Type": "application/json"},
-            body: JSON.stringify({id,title,price,type,img,adminId})
+            body: JSON.stringify({id,title,price,type,img,adminId,ratting})
         })
         .then((req)=> req.json())
         .then((data)=>{
             console.log(data);
             fetchandgetdata()
+            setTimeout(() => {
+                productname.value = '';
+                productimg.value = '';
+                productprice.value = '';
+                producttype.value = '';
+                productid.value = '';
+            }, 500);
             
         })
         

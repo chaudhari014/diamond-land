@@ -19,7 +19,9 @@ display: flex;
 justify-content: center; 
 align-items: center;
 
+
 }
+
 .google{
 font-size: 25px;
 padding: 10px 25px ;
@@ -39,7 +41,8 @@ padding: 10px 25px ;
   padding-left: 400px;
   } 
   #button{
-    padding-left: 550px;
+    /* background-color: red; */
+    text-align: center;
   }
   #button h3 {
     padding-right: 550px;
@@ -61,19 +64,22 @@ h4 {
     text-align: left;
 }
   #continue {
-    padding: 50px  640px;
-    margin: auto;
-    
+    text-align: center;
+    margin-top: 25px;
     
   }
   #continue button {
-    
-    padding: 10px 100px;
+    padding: 15px;
+    text-align: center;
     font-size: 15px;
     border-radius: 10px;
-    background-image: linear-gradient(to right, rgb(182, 56, 240) , rgb(122, 111, 235));;
+    background-image: linear-gradient(to right, rgb(182, 56, 240) , rgb(122, 111, 235));
 
   }
   #last {
     text-align: center;
+  }
+
+  #container{
+    margin: auto;
   }

@@ -43,9 +43,8 @@ officeselectedbutton.addEventListener('click',()=>{
     console.log('h')
 })
 
-let accesskey = 1;
 
-if(accesskey) {
+if(1) {
     loginbar.style.display='none'
     loginbarblack.style.backgroundColor = 'green'
     loginbarblack.style.padding = '0px';
@@ -323,3 +322,4 @@ function removeele(id) {
 let cartbuttonshow = document.getElementById('cartbuttonshow');
  console.log(LSdata)
  cartbuttonshow.innerText = LSdata.length ;
+

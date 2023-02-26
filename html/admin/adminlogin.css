@@ -1,0 +1,86 @@
+*{
+    font-family: sans-serif;
+}
+
+#box1{
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    height: 280px;
+    width: 40%;
+    margin: auto;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+}
+#box2{
+    height: 230px;
+    background-color: rgb(232, 222, 240);
+    width: 60%;
+    margin: auto;
+    margin-top: 15px;
+    padding: 15px;
+}
+#box2 input{
+    padding: 15px;
+    width: 90%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#box2 label{
+    font-size: 20px;
+}
+
+body{
+    background-color: rgb(208, 208, 208);
+}
+
+button{
+    padding: 10px;
+}
+
+
+nav{
+    background-color: rgb(244, 206, 244);
+    height: 65px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+   
+}
+nav>div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav>div:nth-child(2) img {
+   width: 30%;
+   height: 30%;
+
+}
+nav a{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    padding-left: 5px;
+}
+#logo{
+    width: 10%;
+}
+
+#box1 p{
+    font-size: 10px;
+    color: gray;
+    padding: 10px;
+    font-weight: bold;
+}
+#box1 span{
+    color: red;
+}
+#box1 label{
+    color: rgb(8, 8, 8);
+    font-weight: bolder;
+}
