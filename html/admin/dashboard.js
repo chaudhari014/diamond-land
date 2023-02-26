@@ -42,7 +42,10 @@ let paymentdatashow = document.getElementById('paymentdatashow')
     orderbutton.style.fontSize = '18px'
  }
  //console.log(screen.width<440)
+
+ fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData','order');
 orderbutton.addEventListener('click',()=>{
+    fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData','order');
     ordertab.style.display = 'block'
     producttab.style.display = 'none'
     customertab.style.display = 'none'
@@ -103,7 +106,7 @@ productbutton.addEventListener('click',()=>{
 
 
 customerbutton.addEventListener('click',()=>{
-    fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData');
+    fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData',"customer");
     customertab.style.display = 'block'
     ordertab.style.display = 'none'
     producttab.style.display = 'none'
@@ -265,21 +268,30 @@ function getcard(id,name,price,ratting) {
 }
 
 
-async function fetchandgetdatacustomer(url) {
+async function fetchandgetdatacustomer(url,type) {
     let req = await fetch(url)
     let data = await req.json();
     //console.log(data);
-    getcardscx(data)
+   if(type=='order'){
+    getcardsorder(data);
+   }else {
+    getcardscx(data,type)
+   }
 }
 
-fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData')
+//fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData')
 
 
-function getcardscx(data) {
+function getcardscx(data,type) {
     let cards = data.map((ele)=>{
         return getcardcx(ele.date,ele.name,ele.email,ele.order)
     }).join('')
-    customerdatashow.innerHTML = cards;
+    if(type=='order'){
+        orderdatashow.innerHTML = cards;
+    } else{
+        customerdatashow.innerHTML = cards;
+    }
+    
 }
 
 function getcardcx(date,name,email,id) {
@@ -303,11 +315,11 @@ function getcardcx(date,name,email,id) {
 customerfilter.addEventListener('change',()=>{
     console.log(customerfilter.value)
     if(customerfilter.value=='newCustomer'){
-        fetchandgetdatacustomer(`https://diamond-xuwq.onrender.com/customerData?cx-type=new`)
+        fetchandgetdatacustomer(`https://diamond-xuwq.onrender.com/customerData?cx-type=new`,"customer")
     }else if(customerfilter.value=='loyalCustomer') {
-        fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData?cx-type=loyal')
+        fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData?cx-type=loyal',"customer")
     }else{
-        fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData?cx-type=inacitve')
+        fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData?cx-type=inacitve',"customer")
     }
 })
 
@@ -327,23 +339,33 @@ fetchandgetdatapayment('https://diamond-xuwq.onrender.com/customerData')
 
 function getcardspay(data) {
     let cards = data.map((ele)=>{
-        return getcardpay(ele.orderdata,ele.address,ele.productid)
+        return getcardpay(ele.orderdata,ele.address,ele.order,ele.payment)
     }).join('')
     paymentdatashow.innerHTML = cards;
 }
 
-let price = null;
 
+function getcardpay(date,address,price,payment) {
+    if(payment=='postpaid'){
+        payment='Postpaid'
+    }else{
+        payment = "Prepaid"
+    }
 
-function getcardpay(date,address,productid) {
-    getprice(productid),'price';
-    console.log(price)
+    if(price=="TRUE"){
+        price = 'Completed'
+    }else if(price=="FALSE"){
+        price = "Failed"
+    }else {
+        price = 'Pending'
+    }
+
    let  card = `
    <tr class="trows">
    <td>${date}</td>
    <td>${address}</td>
    <td>${price}</td>
-   <td>${1}</td>
+   <td>${payment}</td>
 </tr>
    `
    return card;
@@ -364,3 +386,55 @@ async function getprice(id,type) {
      productid.value = data.id
    }
 }
+
+
+
+function getcardsorder(data) {
+    let cards = data.map((ele)=>{
+        return getcardorders(ele.date,ele.name,ele.payment,ele.order)
+    }).join('')
+
+        orderdatashow.innerHTML = cards;
+  
+}
+
+function getcardorders(date,name,payment,order) {
+    if(order=='TRUE'){
+        order =   "Order Completed"
+    }else if(order=='FALSE') {
+        order = "Order Cancelled"
+    }else {
+        order = 'Order Pending'
+    }
+   let  card = `
+   <tr class="trows">
+   <td>${order}</td>
+   <td>${date}</td>
+   <td>${name}</td>
+   <td>${payment}</td>
+</tr>
+   `
+   return card;
+}
+
+
+paymentfilter.addEventListener('change',()=>{
+    console.log(customerfilter.value)
+    if(paymentfilter.value=='prepaid'){
+        fetchandgetdatapayment(`https://diamond-xuwq.onrender.com/customerData?payment=prepaid`)
+    }else if(paymentfilter.value=='postpaid') {
+        fetchandgetdatapayment('https://diamond-xuwq.onrender.com/customerData?payment=postpaid')
+    }
+})
+
+
+orderfilter.addEventListener('change',()=>{
+        console.log(orderfilter.value)
+    if(orderfilter.value=='completed'){
+        fetchandgetdatacustomer(`https://diamond-xuwq.onrender.com/customerData?order=TRUE`,"order")
+    }else if(orderfilter.value=='pending') {
+        fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData?order=pending',"order")
+    }else{
+        fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData?order=FALSE',"order")
+    }
+})

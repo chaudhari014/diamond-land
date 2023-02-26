@@ -156,9 +156,10 @@ if(address=='true'){
 
 payamountbutton.addEventListener('click',()=>{
     if(upiinput.value.includes('@')) {
-        alert('good')
+        alert('Congratualtion You have made a successfully Payment')
+        window.location.href = "/html/congratualtion.html"
     }else {
-        alert('bad')
+        alert('Please Enter the Valid UPI ID')
     }
 })
 
