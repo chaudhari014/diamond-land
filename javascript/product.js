@@ -61,6 +61,9 @@ function rederdata(data){
         addtocart[i].addEventListener("click",(e)=>{
             LSdata.push(e.target.dataset.productId)
             localStorage.setItem("product",JSON.stringify(LSdata))
+            let cartbuttonshow = document.getElementById('cartbuttonshow');
+
+            cartbuttonshow.innerText = LSdata.length ;
         })
     }
     
@@ -124,3 +127,7 @@ select_filter.addEventListener("click",()=>{
 
 // for(let i=0;i<addtocart.length;i++)
 // console.log(addtocart.length)
+
+let cartbuttonshow = document.getElementById('cartbuttonshow');
+
+ cartbuttonshow.innerText = LSdata.length ;

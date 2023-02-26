@@ -20,10 +20,13 @@ let totalcxhastopay = document.getElementById('totalcxhastopay');
 let extraoff = document.getElementById('extra3');
 let cartdiscount = document.getElementById('cartdiscount');
 let subtotal = document.getElementById('subtotal')
-let sign = JSON.parse(localStorage.getItem('sign')) || true;
+let sign = (localStorage.getItem('sign')) || false;
 let address = localStorage.getItem('address') || false;
+let accesstoken = localStorage.getItem('accesstoken') || false;
 //---------------------------------------------
+let LSdata=JSON.parse(localStorage.getItem("product"))||[]
 
+//---------------------------------------------
 homeselectedbutton.addEventListener('click',()=>{
     homeselectedbutton.style.backgroundColor = '#8863FB';
     homeselectedbutton.style.color = 'white'
@@ -51,26 +54,31 @@ if(accesskey) {
    giftbar.style.display='none'
    addressbar.style.display='none'
    paymentbar.style.display='none'
-    paymentbar2.style.display='none'
+    paymentbar2.style.display='none';
+    sign = true;
+    localStorage.setItem('sign',JSON.stringify(sign) )
+    address = false;
+    localStorage.setItem('address',address)
+
 }
 
 
 // check if sign is T/F; if true that mean cx. have enter the message or cx. don't want to enter message;
 
 
-//  console.log(sign)
-// if(sign!=="true") {
-//     console.log(sign);
-//     giftbar.style.display='none'
-//     giftbarblack.style.backgroundColor = 'green'
-//     giftbarblack.style.padding = '0px';
-// }
+ console.log(sign)
+if(sign=='true') {
+    console.log(sign);
+    giftbar.style.display='none'
+    giftbarblack.style.backgroundColor = 'green'
+    giftbarblack.style.padding = '0px';
+}
 
 
 
 giftbarbutton.addEventListener('click',()=>{
     
-   if(gifttextarea.value || sign==false) {
+   if(gifttextarea.value) {
      setTimeout(() => {
         giftbar.style.display='none'
         giftbarblack.style.backgroundColor = 'green'
@@ -80,17 +88,17 @@ giftbarbutton.addEventListener('click',()=>{
      }, 1000);
    }else if(sign){
         alert('You can Enter Message for your Beloved');
-        sign = false;
+
    }
 })
 
-// giftbarblack.addEventListener('click',()=>{
-//     giftbar.style.display='block'
-//     giftbarblack.style.backgroundColor = 'black'
-//         giftbarblack.style.padding = '4px';
-//         sign = false;
-//         localStorage.setItem('sign',JSON.stringify(sign) )
-// })
+giftbarblack.addEventListener('click',()=>{
+    giftbar.style.display='block'
+    giftbarblack.style.backgroundColor = 'black'
+        giftbarblack.style.padding = '4px';
+        sign = false;
+        localStorage.setItem('sign',JSON.stringify(sign) )
+})
 
 
 
@@ -156,12 +164,17 @@ payamountbutton.addEventListener('click',()=>{
 
 // collect the cartdata from localStorage and append in the checkoutpage
 
-let cartdata = [2154,2145,2155];
 
-for (let i=0; i<cartdata.length; i++) {
-    fetchandrender(cartdata[i]);
+
+function fetchingFromLS(){
+  for (let i=0; i<LSdata.length; i++) {
+    fetchandrender(LSdata[i]);
    // console.log(cartdata[i])
 }
+}
+
+fetchingFromLS()
+
 
 async function fetchandrender(id){
     let request = await fetch(`https://diamond-xuwq.onrender.com/Product/${id}`);
@@ -177,6 +190,8 @@ let total = 0;
 let past = null;
 
 function displaydata(ele) {
+  // cartshow.innerHTML = null;
+
     total+=ele.price;
 
      let cards = getcards(ele.img,ele.price,ele.title,ele.ratting,ele.id)
@@ -234,7 +249,6 @@ function displaydata(ele) {
             removeele(e.target.dataset.id)
         })
     }
-    console.log(buttons)
   
 }
 
@@ -271,5 +285,24 @@ function getcards(img,price,title,ratting,id) {
 
 
 function removeele(id) {
-    
+    console.log(id)
+  let newdata = LSdata.filter((ele)=>{
+    return id!==ele;
+  })
+
+    LSdata = newdata;
+    console.log(LSdata,newdata)
+    localStorage.setItem('product',JSON.stringify(LSdata));
+    let cartbuttonshow = document.getElementById('cartbuttonshow');
+    console.log(LSdata)
+ cartbuttonshow.innerText = LSdata.length ;
+    cartshow.innerHTML = null;
+     fetchingFromLS();
+
 }
+
+
+
+let cartbuttonshow = document.getElementById('cartbuttonshow');
+ console.log(LSdata)
+ cartbuttonshow.innerText = LSdata.length ;

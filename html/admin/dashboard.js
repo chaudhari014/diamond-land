@@ -23,8 +23,9 @@ let productpurity = document.getElementById('productpurity')
 let postrequest = document.getElementById('post');
 let putrequest = document.getElementById('put')
 
-
+let customerdatashow = document.getElementById('customerdatashow')
 let productdatashow = document.getElementById('productdatashow');
+let paymentdatashow = document.getElementById('paymentdatashow')
 //-----------------------------------
 // ordertab.style.display = 'none'
 // producttab.style.display = 'none'
@@ -102,7 +103,7 @@ productbutton.addEventListener('click',()=>{
 
 
 customerbutton.addEventListener('click',()=>{
-    fetchandgetdatacustomer();
+    fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData');
     customertab.style.display = 'block'
     ordertab.style.display = 'none'
     producttab.style.display = 'none'
@@ -133,6 +134,7 @@ customerbutton.addEventListener('click',()=>{
 
 
 paymentbutton.addEventListener('click',()=>{
+    fetchandgetdatapayment('https://diamond-xuwq.onrender.com/customerData')
     paymenttab.style.display = 'block'
     ordertab.style.display = 'none'
     producttab.style.display = 'none'
@@ -221,11 +223,96 @@ function getcard(name) {
 }
 
 
-async function fetchandgetdatacustomer() {
-    let req = await fetch(`https://diamond-xuwq.onrender.com/Product?adminId=35`)
+async function fetchandgetdatacustomer(url) {
+    let req = await fetch(url)
     let data = await req.json();
-    console.log(data);
-    getcards(data)
+    //console.log(data);
+    getcardscx(data)
 }
 
-fetchandgetdatacustomer()
+fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData')
+
+
+function getcardscx(data) {
+    let cards = data.map((ele)=>{
+        return getcardcx(ele.date,ele.name,ele.email,ele.order)
+    }).join('')
+    customerdatashow.innerHTML = cards;
+}
+
+function getcardcx(date,name,email,id) {
+    let order = null;
+    if(id=='TRUE'){
+        order =   "Ordered"
+    }else {
+        order = "Not Ordered"
+    }
+   let  card = `
+   <tr class="trows">
+   <td>${date}</td>
+   <td>${name}</td>
+   <td>${email}</td>
+   <td>${order}</td>
+</tr>
+   `
+   return card;
+}
+
+customerfilter.addEventListener('change',()=>{
+    console.log(customerfilter.value)
+    if(customerfilter.value=='newCustomer'){
+        fetchandgetdatacustomer(`https://diamond-xuwq.onrender.com/customerData?cx-type=new`)
+    }else if(customerfilter.value=='loyalCustomer') {
+        fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData?cx-type=loyal')
+    }else{
+        fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData?cx-type=inacitve')
+    }
+})
+
+
+
+
+
+
+async function fetchandgetdatapayment(url) {
+    let req = await fetch(url)
+    let data = await req.json();
+    console.log(data);
+    getcardspay(data)
+}
+
+fetchandgetdatapayment('https://diamond-xuwq.onrender.com/customerData')
+
+function getcardspay(data) {
+    let cards = data.map((ele)=>{
+        return getcardpay(ele.orderdata,ele.address,ele.productid)
+    }).join('')
+    paymentdatashow.innerHTML = cards;
+}
+
+let price = null;
+
+
+function getcardpay(date,address,productid) {
+    getprice(productid);
+    console.log(price)
+   let  card = `
+   <tr class="trows">
+   <td>${date}</td>
+   <td>${address}</td>
+   <td>${price}</td>
+   <td>${1}</td>
+</tr>
+   `
+   return card;
+}
+
+async function getprice(id) {
+  let req = await fetch(`https://diamond-xuwq.onrender.com/Product/${id}`)
+  let data = await req.json()
+
+ // console.log(data.price);
+  price = data.price
+}
+
+getprice(2144)
