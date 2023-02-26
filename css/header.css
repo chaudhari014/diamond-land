@@ -199,6 +199,10 @@ input {
   justify-content: space-around;
   align-items: center;
 }
+.menu-bar a {
+  text-decoration: none;
+  color: black;
+}
 .menu {
   width: 80%;
   padding: 15px;
@@ -312,7 +316,7 @@ input {
   padding: 10px 15px 10px 15px;
   /* background-color: red; */
 }
-.responsive-menu-list p{
+.responsive-menu-list p {
   font-size: 12px;
 }
 
