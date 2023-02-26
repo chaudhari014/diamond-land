@@ -58,13 +58,18 @@ registerusers(isd,mob,email,First,last,Pass,gender)
     fetch("https://diamond-xuwq.onrender.com/customerData",{
     method : 'POST',
     body:JSON.stringify({
-    name:`${First} ${last}`,
+    title:`${First} ${last}`,
     isd:isd,
     Mob:mob,
-    
     Gender:gender,
-    pass:Pass,
-email:email
+    password:Pass,
+    email:email,
+    order:"FALSE",
+    "cx-type": "new",
+    date: "Feb. 27, 2023",
+    username: email,
+    address: "Not Updated",
+    orderdata: "false"
     }),
      headers : {
       'Content-type':'application/json',

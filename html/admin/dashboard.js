@@ -16,9 +16,9 @@ let productAddOrUpdatebutton = document.getElementById('inputform_submitbutton')
 // product page input tags 
 let productname = document.getElementById('productname');
 let productimg = document.getElementById("productimg");
-let productweight = document.getElementById('productweight');
 let producttype = document.getElementById('producttype');
-let productpurity = document.getElementById('productpurity')
+let productprice = document.getElementById('productprice')
+let productid = document.getElementById('productid')
 // checkbox is checked or not ;
 let postrequest = document.getElementById('post');
 let putrequest = document.getElementById('put')
@@ -42,7 +42,10 @@ let paymentdatashow = document.getElementById('paymentdatashow')
     orderbutton.style.fontSize = '18px'
  }
  //console.log(screen.width<440)
+
+ fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData','order');
 orderbutton.addEventListener('click',()=>{
+    fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData','order');
     ordertab.style.display = 'block'
     producttab.style.display = 'none'
     customertab.style.display = 'none'
@@ -103,7 +106,7 @@ productbutton.addEventListener('click',()=>{
 
 
 customerbutton.addEventListener('click',()=>{
-    fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData');
+    fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData',"customer");
     customertab.style.display = 'block'
     ordertab.style.display = 'none'
     producttab.style.display = 'none'
@@ -177,10 +180,62 @@ productAddOrUpdatebutton.addEventListener('click',(e)=>{
     console.log(postrequest.checked,putrequest.checked)
     if(postrequest.checked) {
         // we will do the post reqeust to server
+        let id = (productid.value)
+        let title = productname.value;
+        let price = productprice.value;
+        let type  = producttype.value;
+        let img = productimg.value;
+        let adminId = 35; 
+        let ratting = 4.2; 
+        fetch(`https://diamond-xuwq.onrender.com/Product/${id}`,{
+            method: 'PUT',
+            headers:{"Content-Type": "application/json"},
+            body: JSON.stringify({id,title,price,type,img,adminId,ratting})
+        })
+        .then((req)=> req.json())
+        .then((data)=>{
+            console.log(data);
+
+            fetchandgetdata()
+            setTimeout(() => {
+                productname.value = '';
+                productimg.value = '';
+                productprice.value = '';
+                producttype.value = '';
+                productid.value = '';
+            }, 500);
+            
+        })
+
         console.log('post')
     } else if(putrequest.checked){
         // we will do the put request ;
-        console.log('put')
+        let id = (productid.value)
+        let title = productname.value;
+        let price = productprice.value;
+        let type  = producttype.value;
+        let img = productimg.value;
+        let adminId = 35; 
+        let ratting = 4.2; 
+        fetch(`https://diamond-xuwq.onrender.com/Product`,{
+            method: 'POST',
+            headers:{"Content-Type": "application/json"},
+            body: JSON.stringify({id,title,price,type,img,adminId,ratting})
+        })
+        .then((req)=> req.json())
+        .then((data)=>{
+            console.log(data);
+            fetchandgetdata()
+            setTimeout(() => {
+                productname.value = '';
+                productimg.value = '';
+                productprice.value = '';
+                producttype.value = '';
+                productid.value = '';
+            }, 500);
+            
+        })
+        
     }
     
 })
@@ -197,47 +252,62 @@ async function fetchandgetdata() {
 
 function getcards(data) {
     let cards = data.map((ele)=>{
-        return getcard(ele.id,ele.name)
+        return getcard(ele.id,ele.title,ele.price,ele.ratting)
     }).join('')
     productdatashow.innerHTML = cards;
+
+    let editbutton = document.querySelectorAll('.editbutton');
+
+    for (let button of editbutton) {
+        button.addEventListener('click',(e)=>{
+            let id = (e.target.dataset.id)
+            getprice(id,'button')
+        })
+    }
+
+
+
 }
 
-function getcard(name) {
-     let inventory = Math.floor(Math.random()*99)
-    let avavlity = ''; 
-    if(inventory<25) {
-        avavlity = "Low"
-    }else{
-        avavlity = "High"
-    }
+function getcard(id,name,price,ratting) {
+    
     let  card = `
     <tr class="trows">
-    <td>${name}</td>
-    <td>Published</td>
-    <td>${avavlity}</td>
-    <td>${inventory}</td>
-    <td>Edit</td>
-</tr>
+        <td>${name}</td>
+        <td>Published</td>
+        <td>${ratting}</td>
+        <td>${price}</td>
+        <td data-id=${id} class="editbutton">Edit</td>
+    </tr>
     `
     return card;
 }
 
 
-async function fetchandgetdatacustomer(url) {
+async function fetchandgetdatacustomer(url,type) {
     let req = await fetch(url)
     let data = await req.json();
     //console.log(data);
-    getcardscx(data)
+   if(type=='order'){
+    getcardsorder(data);
+   }else {
+    getcardscx(data,type)
+   }
 }
 
-fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData')
+//fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData')
 
 
-function getcardscx(data) {
+function getcardscx(data,type) {
     let cards = data.map((ele)=>{
         return getcardcx(ele.date,ele.name,ele.email,ele.order)
     }).join('')
-    customerdatashow.innerHTML = cards;
+    if(type=='order'){
+        orderdatashow.innerHTML = cards;
+    } else{
+        customerdatashow.innerHTML = cards;
+    }
+    
 }
 
 function getcardcx(date,name,email,id) {
@@ -261,11 +331,11 @@ function getcardcx(date,name,email,id) {
 customerfilter.addEventListener('change',()=>{
     console.log(customerfilter.value)
     if(customerfilter.value=='newCustomer'){
-        fetchandgetdatacustomer(`https://diamond-xuwq.onrender.com/customerData?cx-type=new`)
+        fetchandgetdatacustomer(`https://diamond-xuwq.onrender.com/customerData?cx-type=new`,"customer")
     }else if(customerfilter.value=='loyalCustomer') {
-        fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData?cx-type=loyal')
+        fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData?cx-type=loyal',"customer")
     }else{
-        fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData?cx-type=inacitve')
+        fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData?cx-type=inacitve',"customer")
     }
 })
 
@@ -285,34 +355,102 @@ fetchandgetdatapayment('https://diamond-xuwq.onrender.com/customerData')
 
 function getcardspay(data) {
     let cards = data.map((ele)=>{
-        return getcardpay(ele.orderdata,ele.address,ele.productid)
+        return getcardpay(ele.orderdata,ele.address,ele.order,ele.payment)
     }).join('')
     paymentdatashow.innerHTML = cards;
 }
 
-let price = null;
 
+function getcardpay(date,address,price,payment) {
+    if(payment=='postpaid'){
+        payment='Postpaid'
+    }else{
+        payment = "Prepaid"
+    }
 
-function getcardpay(date,address,productid) {
-    getprice(productid);
-    console.log(price)
+    if(price=="TRUE"){
+        price = 'Completed'
+    }else if(price=="FALSE"){
+        price = "Failed"
+    }else {
+        price = 'Pending'
+    }
+
    let  card = `
    <tr class="trows">
    <td>${date}</td>
    <td>${address}</td>
    <td>${price}</td>
-   <td>${1}</td>
+   <td>${payment}</td>
 </tr>
    `
    return card;
 }
 
-async function getprice(id) {
+async function getprice(id,type) {
   let req = await fetch(`https://diamond-xuwq.onrender.com/Product/${id}`)
   let data = await req.json()
-
  // console.log(data.price);
-  price = data.price
+   if(type=='price'){
+    price = data.price
+   }else if(type=='button') {
+     console.log(data);
+     productname.value = data.title;
+     productimg.value = data.img;
+     productprice.value = data.price;
+     producttype.value = data.type;
+     productid.value = data.id
+   }
 }
 
-getprice(2144)
+
+
+function getcardsorder(data) {
+    let cards = data.map((ele)=>{
+        return getcardorders(ele.date,ele.name,ele.payment,ele.order)
+    }).join('')
+
+        orderdatashow.innerHTML = cards;
+  
+}
+
+function getcardorders(date,name,payment,order) {
+    if(order=='TRUE'){
+        order =   "Order Completed"
+    }else if(order=='FALSE') {
+        order = "Order Cancelled"
+    }else {
+        order = 'Order Pending'
+    }
+   let  card = `
+   <tr class="trows">
+   <td>${order}</td>
+   <td>${date}</td>
+   <td>${name}</td>
+   <td>${payment}</td>
+</tr>
+   `
+   return card;
+}
+
+
+paymentfilter.addEventListener('change',()=>{
+    console.log(customerfilter.value)
+    if(paymentfilter.value=='prepaid'){
+        fetchandgetdatapayment(`https://diamond-xuwq.onrender.com/customerData?payment=prepaid`)
+    }else if(paymentfilter.value=='postpaid') {
+        fetchandgetdatapayment('https://diamond-xuwq.onrender.com/customerData?payment=postpaid')
+    }
+})
+
+
+orderfilter.addEventListener('change',()=>{
+        console.log(orderfilter.value)
+    if(orderfilter.value=='completed'){
+        fetchandgetdatacustomer(`https://diamond-xuwq.onrender.com/customerData?order=TRUE`,"order")
+    }else if(orderfilter.value=='pending') {
+        fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData?order=pending',"order")
+    }else{
+        fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData?order=FALSE',"order")
+    }
+})

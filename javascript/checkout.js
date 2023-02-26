@@ -43,9 +43,8 @@ officeselectedbutton.addEventListener('click',()=>{
     console.log('h')
 })
 
-let accesskey = 1;
 
-if(accesskey) {
+if(1) {
     loginbar.style.display='none'
     loginbarblack.style.backgroundColor = 'green'
     loginbarblack.style.padding = '0px';
@@ -156,9 +155,10 @@ if(address=='true'){
 
 payamountbutton.addEventListener('click',()=>{
     if(upiinput.value.includes('@')) {
-        alert('good')
+        alert('Congratualtion You have made a successfully Payment')
+        window.location.href = "/html/congratualtion.html"
     }else {
-        alert('bad')
+        alert('Please Enter the Valid UPI ID')
     }
 })
 
@@ -171,6 +171,7 @@ function fetchingFromLS(){
     fetchandrender(LSdata[i]);
    // console.log(cartdata[i])
 }
+
 }
 
 fetchingFromLS()
@@ -185,12 +186,13 @@ async function fetchandrender(id){
 }
 
 
-let total = 0; 
+
 
 let past = null;
 
 function displaydata(ele) {
   // cartshow.innerHTML = null;
+  let total = 0; 
 
     total+=ele.price;
 
@@ -225,14 +227,14 @@ function displaydata(ele) {
             extra3 = discount-(discount*0.03).toFixed(1)
             extraoff.innerText = extraval;
             totalcxhastopay.innerText = extra3.toLocaleString();
-
-            
             //totalcxhastopay.innerText = total;
             past = selects.value;
+            payamountbutton.innerText = "₹ "+  extra3.toLocaleString();
+            
         })
 
     }
-    
+    console.log('print')
             subtotal.innerText = total;
             let discountval = (total*0.1).toFixed(1)
             let discount = total-(total*0.1).toFixed(1)
@@ -241,11 +243,24 @@ function displaydata(ele) {
             extra3 = discount-(discount*0.03).toFixed(1)
             extraoff.innerText = extraval;
             totalcxhastopay.innerText = extra3.toLocaleString();
+            payamountbutton.innerText = "₹ "+ extra3.toLocaleString();
 
     let buttons = document.querySelectorAll('.cards button')
 
     for (let button of buttons) {
         button.addEventListener('click',(e)=>{
+          total=0;
+          subtotal.innerText = total;
+          let discountval = (total*0.1).toFixed(1)
+          let discount = total-(total*0.1).toFixed(1)
+          cartdiscount.innerText = discountval;
+          let extraval = (discount*0.03).toFixed(1)
+          extra3 = discount-(discount*0.03).toFixed(1)
+          extraoff.innerText = extraval;
+          totalcxhastopay.innerText = extra3.toLocaleString();
+          payamountbutton.innerText = "₹ "+ extra3.toLocaleString();
+        
+
             removeele(e.target.dataset.id)
         })
     }
@@ -294,8 +309,9 @@ function removeele(id) {
     console.log(LSdata,newdata)
     localStorage.setItem('product',JSON.stringify(LSdata));
     let cartbuttonshow = document.getElementById('cartbuttonshow');
-    console.log(LSdata)
+    //console.log(LSdata)
  cartbuttonshow.innerText = LSdata.length ;
+ 
     cartshow.innerHTML = null;
      fetchingFromLS();
 
@@ -306,3 +322,4 @@ function removeele(id) {
 let cartbuttonshow = document.getElementById('cartbuttonshow');
  console.log(LSdata)
  cartbuttonshow.innerText = LSdata.length ;
+

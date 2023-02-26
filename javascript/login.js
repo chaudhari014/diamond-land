@@ -7,7 +7,6 @@ let url=`https://diamond-xuwq.onrender.com/customerData`;
      let loginBtn=document.querySelector("form");
      console.log("hello")
      
-
      loginBtn.addEventListener("submit",(e)=>{
         e.preventDefault();
        fetch(url).then((res)=>{
