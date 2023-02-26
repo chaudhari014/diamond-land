@@ -16,9 +16,9 @@ let productAddOrUpdatebutton = document.getElementById('inputform_submitbutton')
 // product page input tags 
 let productname = document.getElementById('productname');
 let productimg = document.getElementById("productimg");
-let productweight = document.getElementById('productweight');
 let producttype = document.getElementById('producttype');
-let productpurity = document.getElementById('productpurity')
+let productprice = document.getElementById('productprice')
+let productid = document.getElementById('productid')
 // checkbox is checked or not ;
 let postrequest = document.getElementById('post');
 let putrequest = document.getElementById('put')
@@ -177,10 +177,46 @@ productAddOrUpdatebutton.addEventListener('click',(e)=>{
     console.log(postrequest.checked,putrequest.checked)
     if(postrequest.checked) {
         // we will do the post reqeust to server
+        let id = (productid.value)
+        let title = productname.value;
+        let price = productprice.value;
+        let type  = producttype.value;
+        let img = productimg.value;
+        let adminId = 35; 
+        fetch(`https://diamond-xuwq.onrender.com/Product/${id}`,{
+            method: 'PUT',
+            headers:{"Content-Type": "application/json"},
+            body: JSON.stringify({id,title,price,type,img,adminId})
+        })
+        .then((req)=> req.json())
+        .then((data)=>{
+            console.log(data);
+
+            fetchandgetdata()
+            
+        })
+
         console.log('post')
     } else if(putrequest.checked){
         // we will do the put request ;
-        console.log('put')
+        let id = (productid.value)
+        let title = productname.value;
+        let price = productprice.value;
+        let type  = producttype.value;
+        let img = productimg.value;
+        let adminId = 35; 
+        fetch(`https://diamond-xuwq.onrender.com/Product`,{
+            method: 'POST',
+            headers:{"Content-Type": "application/json"},
+            body: JSON.stringify({id,title,price,type,img,adminId})
+        })
+        .then((req)=> req.json())
+        .then((data)=>{
+            console.log(data);
+            fetchandgetdata()
+            
+        })
+        
     }
     
 })
@@ -197,27 +233,33 @@ async function fetchandgetdata() {
 
 function getcards(data) {
     let cards = data.map((ele)=>{
-        return getcard(ele.id,ele.name)
+        return getcard(ele.id,ele.title,ele.price,ele.ratting)
     }).join('')
     productdatashow.innerHTML = cards;
+
+    let editbutton = document.querySelectorAll('.editbutton');
+
+    for (let button of editbutton) {
+        button.addEventListener('click',(e)=>{
+            let id = (e.target.dataset.id)
+            getprice(id,'button')
+        })
+    }
+
+
+
 }
 
-function getcard(name) {
-     let inventory = Math.floor(Math.random()*99)
-    let avavlity = ''; 
-    if(inventory<25) {
-        avavlity = "Low"
-    }else{
-        avavlity = "High"
-    }
+function getcard(id,name,price,ratting) {
+    
     let  card = `
     <tr class="trows">
-    <td>${name}</td>
-    <td>Published</td>
-    <td>${avavlity}</td>
-    <td>${inventory}</td>
-    <td>Edit</td>
-</tr>
+        <td>${name}</td>
+        <td>Published</td>
+        <td>${ratting}</td>
+        <td>${price}</td>
+        <td data-id=${id} class="editbutton">Edit</td>
+    </tr>
     `
     return card;
 }
@@ -294,7 +336,7 @@ let price = null;
 
 
 function getcardpay(date,address,productid) {
-    getprice(productid);
+    getprice(productid),'price';
     console.log(price)
    let  card = `
    <tr class="trows">
@@ -307,12 +349,18 @@ function getcardpay(date,address,productid) {
    return card;
 }
 
-async function getprice(id) {
+async function getprice(id,type) {
   let req = await fetch(`https://diamond-xuwq.onrender.com/Product/${id}`)
   let data = await req.json()
-
  // console.log(data.price);
-  price = data.price
+   if(type=='price'){
+    price = data.price
+   }else if(type=='button') {
+     console.log(data);
+     productname.value = data.title;
+     productimg.value = data.img;
+     productprice.value = data.price;
+     producttype.value = data.type;
+     productid.value = data.id
+   }
 }
-
-getprice(2144)
