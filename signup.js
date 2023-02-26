@@ -35,7 +35,7 @@ RegisterBtn.addEventListener("click",function(e){
   alert("Register Successfully")
   e.preventDefault();
 
-
+  window.location.assign("login.html")
 let isd=IsdNumber.value
 let mob=MobNumber.value;
 let email=Email.value;
