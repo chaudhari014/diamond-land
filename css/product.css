@@ -1,10 +1,12 @@
 #maincontainer{
     display: flex;
     
+    
 }
 #filter-data{
     position:sticky;
-    top: 10px;
+    /* top: 10px; */
+    left: 0;
     width: 20%;
     margin-left:5%;
     border-radius:40px 40px 0px 0px;
@@ -89,6 +91,7 @@ input::-webkit-outer-spin-button,
       }
 .low-number{
     font-size: 15px;
+    border-radius: 4px;
     padding: 5px 20px 5px 20px;
    outline: none;
    text-decoration: none;
@@ -100,9 +103,11 @@ input::-webkit-outer-spin-button,
 #sort-data button{
     font-size: 20px;
     padding: 5px 20px 5px 20px;
+    border-radius: 4px;
     background: linear-gradient(to right, #D059E8, #9462F8);
-    border: 0.1 solid  black;
+    border: 0.1px solid  black;
     cursor: pointer;
+    
 }
 #sort-data button:hover{
     background: linear-gradient(to right, #c65bdc, #4806cd);
