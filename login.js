@@ -19,17 +19,20 @@ let url=`https://diamond-xuwq.onrender.com/customerData`;
      }) 
      
         if(user[0]==undefined){
-            alert("Wrong Credientials")
-        }else{
+            alert("Wrong Credentials")
+        }else {
          // console.log(user[0].pass,password.value)
            if(user[0].pass==password.value){
             alert("Login Success")
             window.location.assign("index.html")
-           }else{
+           }else  {
             alert("Wrong Password");
           email.value=null;
-
-           }
+           }        
         }
        })
      })
+
+
+   
+     

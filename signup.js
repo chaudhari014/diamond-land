@@ -17,7 +17,6 @@ function Toggle() {
     }
   }
 
-
   
 let IsdNumber=document.getElementById("numbers")
 let MobNumber=document.getElementById("mobileno")
@@ -35,7 +34,6 @@ RegisterBtn.addEventListener("click",function(e){
   alert("Register Successfully")
   e.preventDefault();
 
-  window.location.assign("login.html")
 let isd=IsdNumber.value
 let mob=MobNumber.value;
 let email=Email.value;
@@ -47,6 +45,11 @@ let gender=Gender.value;
 
 registerusers(isd,mob,email,First,last,Pass,gender)
 
+  // window.location.assign("login.html")
+
+  setTimeout(()=>{
+    window.location.assign("login.html")
+  },1000)
 
 })
 
@@ -68,6 +71,10 @@ email:email
     }),
      headers : {
       'Content-type':'application/json',
+
      }
     })
+    
+
   }
+  
