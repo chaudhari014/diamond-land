@@ -135,7 +135,7 @@ input {
   justify-content: space-around;
   align-items: center;
 }
-.nav1 > img {
+.nav1 img {
   height: 70px;
 }
 .nav-bar {
@@ -188,6 +188,7 @@ input {
 }
 
 .icon-image {
+  height: 26px;
   width: 20px;
 }
 .menu-bar {
@@ -421,6 +422,7 @@ input {
   width: 400px;
 }
 .payment-section div {
+  margin-top: 70px;
   display: flex;
   justify-content: space-around;
   align-items: center;
