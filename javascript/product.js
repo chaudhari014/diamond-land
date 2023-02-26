@@ -38,16 +38,87 @@ let buttoncontainer=document.getElementById("pagination-wrapper")
 let select_filter=document.getElementById("select-filter")
 let countpage=0
 let LSdata=JSON.parse(localStorage.getItem("product"))||[]
+let rahul_1=document.getElementById("rahul-1")
+let rahul_2=document.getElementById("rahul-2")
+
+let input_search=document.getElementById("input-search")
+let searchbutton=document.getElementById("searchclick")
+
+let low_number=document.getElementById("low-number")
+let high_number=document.getElementById("high-number")
+let pricefilter=document.getElementById("pricefilter")
+
+let checkbox_product=document.querySelectorAll(".checkbox-product")
+let obj={}
+
+function checkboxfunction(data){
+   let filterdata=data.filter((el)=>{
+    return obj[el.type]
+   })
+   if(filterdata.length===0){
+    fetchdata()
+   }else{
+    console.log(filterdata)
+    rederdata(filterdata)
+   }
+}
+
+
+function price_filter(data){
+    let newfilter2=data.filter((el)=>{
+        if(low_number.value<=el.price && high_number.value>=el.price){
+            return true
+        }else{
+            return false
+        }
+    })
+    rederdata(newfilter2)
+}
+
+function searchfunction(data){
+    let newfilter=data.filter((el)=>{
+          if((el.title.toUpperCase().includes(input_search.value.toUpperCase()))===true){
+            return true
+          }else{
+            return false
+          }
+      })
+      rederdata(newfilter)
+    }
+    async function fetchdata2(){
+        let data=await fetch(`https://diamond-xuwq.onrender.com/Product`)
+        data=await data.json()
+        console.log(data)
+        searchbutton.addEventListener("click",()=>{
+            searchfunction(data)
+            buttoncontainer.style.display="none"
+        })
+
+        pricefilter.addEventListener("click",()=>{
+            price_filter(data)
+            buttoncontainer.style.display="none"
+           
+        })  
+        
+        for(let i=0;i<checkbox_product.length;i++){
+            checkbox_product[i].addEventListener("click",()=>{
+                obj[checkbox_product[i].id]=checkbox_product[i].checked
+                console.log(obj)
+                checkboxfunction(data)
+            })
+        }
+
+    }
+    fetchdata2()
 
 async function fetchdata(page=1,url=`https://diamond-xuwq.onrender.com/Product?_limit=21&_page=${page}`){
     let data=await fetch(url);
     let count=(data.headers.get("X-Total-Count"))
     data=await data.json();
-   
+    
     rederdata(data)
     paggination(count)
-    // console.log(container)
-    // console.log(data)
+
 }
 fetchdata()
 
@@ -59,14 +130,35 @@ function rederdata(data){
     let addtocart=document.querySelectorAll(".rating-div button")
     for(let i=0;i<addtocart.length;i++){
         addtocart[i].addEventListener("click",(e)=>{
+            if(matchitem(e.target.dataset.productId)){
+                // addtocart[i].innerText="Product Already in Cart"
+                alert("Item Already in Cart")
+                
+            }else{
+                alert("Item Add to Cart")
+                // addtocart[i].innerText="Product Add to Cart"
+            rahul_1.innerText=LSdata.length
+            rahul_2.innerText=LSdata.length
             LSdata.push(e.target.dataset.productId)
             localStorage.setItem("product",JSON.stringify(LSdata))
+<<<<<<< HEAD
             let cartbuttonshow = document.getElementById('cartbuttonshow');
 
             cartbuttonshow.innerText = LSdata.length ;
+=======
+            }
+>>>>>>> 26fb3196a08ce77e864fd1fd0a93a6c2b0127798
         })
     }
     
+}
+function matchitem(id){
+    for(let i=0;i<LSdata.length;i++){
+        if(id==LSdata[i]){
+            return true
+        }
+    }
+    return false
 }
 
 function getcard(img,title,price,ratting,id){
@@ -74,7 +166,7 @@ function getcard(img,title,price,ratting,id){
      <div class='price-div'><p>₹${price} </p> <p><img src="/logo/icons/copy.png" alt=''>view simmilar</p></div>
      <h4>Check delivery date ></h4>
      <p>${title}</p>
-     <div class='rating-div'><p><img src="/logo/icons/star.png" alt=''> ${ratting}</p> <button data-product-id=${id}>Add to Cart</button></div>
+     <div class='rating-div'><p><img src="/logo/icons/star.png" alt=''> ${ratting} ratting</p> <button data-product-id=${id}>Add to Cart</button></div>
      </div>` 
 
      return card

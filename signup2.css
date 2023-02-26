@@ -1,0 +1,255 @@
+
+
+#Main-container{
+   margin: auto;
+   align-items: center;
+   width: 35%;
+}
+
+h1{
+  text-align: center;
+}
+#main {
+   /* background-color: red; */
+   display: flex;
+   justify-content: center;
+
+   
+}
+#main  button {
+   display: flex;
+   justify-content: center; 
+   align-items: center;
+   padding: 5px 30px;
+  
+}
+.google{
+   font-size: 25px;
+    margin-left: 100px;
+   
+   
+}
+.Facebook{
+   font-size: 25px;
+   padding: 15px;
+
+}
+ .or h3{
+  text-align: center;
+  opacity: .5;
+}
+#number{
+   display: flex;
+/* padding-left: 500px; */
+gap: 47px;
+}
+#number h2 {
+   color: #100532;
+}
+.ISD input{
+ padding: 10px 00px;
+  border-radius: 5px;
+
+}
+
+.mobile-number input{
+   font-size: 18px ;
+   padding: 18px 80px;
+   border-radius: 5px;
+   border-radius: 10px;
+
+}
+#email {
+  /* padding-left: 500px; */
+}
+#email h2 {
+   color: #1f143f;
+}
+#email input {
+   font-size: 18px;
+   padding: 15px 100px;
+   border-radius: 10px;
+}
+#fullname {
+   display: flex;
+   /* padding-left: 500px; */
+   gap: 50px  ;
+}
+.first input {
+   padding: 15px 30px;
+   font-size: 15px;
+   border-radius: 10px;
+}
+.first h2 {
+   color: #1f143f;
+}
+.last input {
+   padding: 15px 30px;
+   font-size: 18px;
+   border-radius: 10px;
+}
+.last h2 {
+   color: #1f143f;
+}
+#pass{
+   /* padding-left: 500px; */
+  
+}
+#pass input {
+  padding: 18px 80px;
+  font-size: 18px;
+    border-radius: 10px;
+}
+/* #pass input{
+   font-size: 18px;
+} */
+#confirm-pass{
+   /* padding-left: 500px; */
+}  
+#confirm-pass input {
+   padding: 18px 80px;
+    font-size: 18px;
+    border-radius: 10px;
+ }
+ #confirm-pass input{
+    font-size: 18px;
+ }
+ .container {
+   display: block;
+   position: relative;
+   padding-left: 35px;
+   margin-bottom: 12px;
+   cursor: pointer;
+   font-size: 22px;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+ }
+ 
+ /* Hide the browser's default radio button */
+ .container input {
+   position: absolute;
+   opacity: 0;
+   cursor: pointer;
+ }
+ 
+ /* Create a custom radio button */
+ .checkmark {
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 25px;
+   width: 25px;
+   background-color: #eee;
+   border-radius: 50%;
+ }
+ 
+ /* On mouse-over, add a grey background color */
+ .container:hover input ~ .checkmark {
+   background-color: #ccc;
+ }
+ 
+ /* When the radio button is checked, add a blue background */
+ .container input:checked ~ .checkmark {
+   background-color: #4a0dd9;
+ }
+ 
+ /* Create the indicator (the dot/circle - hidden when not checked) */
+ .checkmark:after {
+   content: "";
+   position: absolute;
+   display: none;
+ }
+ 
+ /* Show the indicator (dot/circle) when checked */
+ .container input:checked ~ .checkmark:after {
+   display: block;
+ }
+ 
+ /* Style the indicator (dot/circle) */
+ .container .checkmark:after {
+     top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+ }
+#round{
+
+   display: flex;
+   /* padding-left: 500px; */
+   gap: 30px;
+   padding-top: 30px;
+}
+
+.round {
+   position: relative;
+ }
+ 
+ .round label {
+   background-color: #fff;
+   border: 1px solid #ccc;
+   border-radius: 50%;
+   cursor: pointer;
+   height: 28px;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 28px;
+ }
+ 
+ .round label:after {
+   border: 2px solid #fff;
+   border-top: none;
+   border-right: none;
+   content: "";
+   height: 6px;
+   left: 7px;
+   opacity: 0;
+   position: absolute;
+   top: 8px;
+   transform: rotate(-45deg);
+   width: 12px;
+ }
+ 
+ .round input[type="checkbox"] {
+   visibility: hidden;
+ }
+ 
+ .round input[type="checkbox"]:checked + label {
+   background-color: #1643b7;
+   border-color: #4f14c6;
+ }
+ 
+ .round input[type="checkbox"]:checked + label:after {
+   opacity: 1;
+ }
+ #containerr {
+   /* padding-left: 500px; */
+   /* padding-right: 500px; */
+
+   /* text-align: center; */
+   padding-top: 20px;
+   /* box-shadow: rgba(6, 6, 158, 0.2) 0px 7px 29px 0px; */
+   background-color: #f7f2f2;
+ }
+#button{
+   /* padding-left: 550px; */
+   padding-top: 80px;
+
+}
+#button button {
+   font-size: 25px;
+   border-radius: 20px;
+   padding: 20px 32px;
+   background-image: linear-gradient(to right, rgb(182, 56, 240) , rgb(122, 111, 235));;
+}
+#aaa{
+   width: 100%;
+   height: 800px;
+   /* padding-left: 600px; */
+   padding-top: 50px;
+   font-size: 18px;
+}
