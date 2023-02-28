@@ -27,6 +27,9 @@ let customerdatashow = document.getElementById('customerdatashow')
 let productdatashow = document.getElementById('productdatashow');
 let paymentdatashow = document.getElementById('paymentdatashow')
 //-----------------------------------
+let  admindata = JSON.parse(localStorage.getItem('cxdata'))
+let logout = document.getElementById('adminpagestatus')
+//-----------------------------------
 // ordertab.style.display = 'none'
 // producttab.style.display = 'none'
 // customertab.style.display = 'none'
@@ -185,7 +188,7 @@ productAddOrUpdatebutton.addEventListener('click',(e)=>{
         let price = productprice.value;
         let type  = producttype.value;
         let img = productimg.value;
-        let adminId = 35; 
+        let adminId = customerdata; 
         let ratting = 4.2; 
         fetch(`https://diamond-xuwq.onrender.com/Product/${id}`,{
             method: 'PUT',
@@ -240,8 +243,11 @@ productAddOrUpdatebutton.addEventListener('click',(e)=>{
     
 })
 
+let adminid= admindata[0].id;
+console.log(adminid)
+
 async function fetchandgetdata() {
-    let req = await fetch(`https://diamond-xuwq.onrender.com/Product?adminId=35`)
+    let req = await fetch(`https://diamond-xuwq.onrender.com/Product?adminId=${adminid}`)
     let data = await req.json();
     console.log(data);
     getcards(data)
@@ -453,4 +459,11 @@ orderfilter.addEventListener('change',()=>{
     }else{
         fetchandgetdatacustomer('https://diamond-xuwq.onrender.com/customerData?order=FALSE',"order")
     }
+})
+
+logout.addEventListener('click',(e)=>{
+   // e.preventDefault()
+    console.log("hello")
+    admindata = null;
+    localStorage.setItem('cxdata', JSON.stringify(admindata))
 })

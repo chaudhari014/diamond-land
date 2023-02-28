@@ -38,6 +38,10 @@ body{
 
 button{
     padding: 10px;
+    background-color: rgb(206, 138, 251);
+    font-weight: bolder;
+    color: white;
+    border: 1px solid rgb(21, 21, 21);
 }
 
 

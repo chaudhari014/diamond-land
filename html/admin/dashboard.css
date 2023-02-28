@@ -47,6 +47,10 @@ nav a{
     padding-top: 70px;
 }
 
+#adminpagestatus{
+    font-size: 11px;
+    width: 100%;
+}
 
 #left{
     /* background-color: gainsboro; */

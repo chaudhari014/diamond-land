@@ -1,7 +1,7 @@
 
      let loginBtn=document.getElementById("button1");
      console.log(loginBtn)
-     
+    let admindata = JSON.parse(localStorage.getItem('cxdata')) || null; 
 
 
      loginBtn.addEventListener('click',(e)=>{
@@ -17,6 +17,8 @@
            .then((data)=>{
             console.log(data)
             if(data[0].password==password){
+              admindata = data;
+              localStorage.setItem('cxdata', JSON.stringify(admindata))
                 window.location.href = "/html/admin/dashbord.html"
             }else{
                 alert("Password is Incorrect")
