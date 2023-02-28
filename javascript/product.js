@@ -38,10 +38,11 @@ let buttoncontainer=document.getElementById("pagination-wrapper")
 let select_filter=document.getElementById("select-filter")
 let countpage=0
 let LSdata=JSON.parse(localStorage.getItem("product"))||[]
-let rahul_1=document.getElementById("rahul-1")
+// let rahul_1=document.getElementById("rahul-1")
 let rahul_2=document.getElementById("rahul-2")
 
 let input_search=document.getElementById("input-search")
+ console.log(input_search)
 let searchbutton=document.getElementById("searchclick")
 
 let low_number=document.getElementById("low-number")
@@ -88,7 +89,7 @@ function searchfunction(data){
     async function fetchdata2(){
         let data=await fetch(`https://diamond-xuwq.onrender.com/Product`)
         data=await data.json()
-        console.log(data)
+        
         searchbutton.addEventListener("click",()=>{
             searchfunction(data)
             buttoncontainer.style.display="none"
@@ -118,7 +119,7 @@ async function fetchdata(page=1,url=`https://diamond-xuwq.onrender.com/Product?_
     
     rederdata(data)
     paggination(count)
-
+    rahul_2.innerText=LSdata.length
 }
 fetchdata()
 
@@ -137,10 +138,14 @@ function rederdata(data){
             }else{
                 alert("Item Add to Cart")
                 // addtocart[i].innerText="Product Add to Cart"
-            rahul_1.innerText=LSdata.length
-            rahul_2.innerText=LSdata.length
+            // rahul_1.innerText=LSdata.length
+            
             LSdata.push(e.target.dataset.productId)
             localStorage.setItem("product",JSON.stringify(LSdata))
+
+            rahul_2.innerText=LSdata.length
+
+
             }
         })
     }
@@ -157,10 +162,10 @@ function matchitem(id){
 
 function getcard(img,title,price,ratting,id){
      let card=`<div class='product-div'><div class='card-image-div'><img class='card-image' src=${img} alt='error'></div>
-     <div class='price-div'><p>₹${price} </p> <p><img src="/logo/icons/copy.png" alt=''>view simmilar</p></div>
+     <div class='price-div'><p>₹${price.toLocaleString()} </p> <p><img src="/logo/icons/copy.png" alt=''>view simmilar</p></div>
      <h4>Check delivery date ></h4>
      <p>${title}</p>
-     <div class='rating-div'><p><img src="/logo/icons/star.png" alt=''> ${ratting} ratting</p> <button data-product-id=${id}>Add to Cart</button></div>
+     <div class='rating-div'><p><img src="/logo/icons/star.png" alt=''> ${ratting} ratting</p> <div><button data-product-id=${id}>Add to Cart</button></div></div>
      </div>` 
 
      return card
@@ -214,6 +219,6 @@ select_filter.addEventListener("click",()=>{
 // for(let i=0;i<addtocart.length;i++)
 // console.log(addtocart.length)
 
-let cartbuttonshow = document.getElementById('cartbuttonshow');
+// let cartbuttonshow = document.getElementById('cartbuttonshow');
 
- cartbuttonshow.innerText = LSdata.length ;
+//  cartbuttonshow.innerText = LSdata.length ;
